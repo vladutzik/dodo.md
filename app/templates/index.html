@@ -1,121 +1,144 @@
-{% extends 'bootstrap/base.html' %}
 
-	{% block content %}
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">DoDo</a>
-    </div>
+{% extends "bootstrap/base.html" %}
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      
-		<ul class="nav navbar-nav navbar-right">
-			<li>
-	        	<form class="navbar-form navbar-left" role="search">
-			        <div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
-			 		</div>
-		        
-		    		<button type="button" class="btn btn-default" aria-label="Left Align">
-				 		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-					</button>
-					<button type="button" class="btn btn-default  dropdown-toggle" aria-label="Left Align" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				 		<span class="glyphicon glyphicon-align-justify" id="dropdownMenu1"></span>
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li><a href="#">Separated link</a></li>
-  							</ul>
-					<!-- <button class="btn btn-default glyphicon glyphicon-align-justify" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> -->
-<!--    					 	Dropdown
-    					<span class="caret"></span>
-  						</button> -->
-  						<!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li><a href="#">Separated link</a></li>
-  							</ul> -->
-					
-					<button type="submit" class="btn btn-default">Log In</button>
-					<div class="dropdown">
- 				 		
- 						 	
-					</div>
-			    </form> 
-			</li>
+{% block head %}
+{% block metas %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock metas %}
+
+  {% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="../static/main.css">
+    <link rel="stylesheet" type="text/css" href="../static/home.css">
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+<div id='background'>
+  {% block content %}
+  {% block navbar %}
+  <nav class="navbar transparent navbar-inverse ">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>        
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      <a class="navbar-brand" href="/"><img src="../static/dr.png"></a>
+      <ul class="nav navbar-nav navbar-right">
 
-	{% block styles %}
-	{{super()}}
-	<link rel="stylesheet"
-    href="{{url_for('.static',filename='content.css')}}">
-	{% endblock %}
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Aboneaza-te</a></li>
+            <li><a href="#">Vezi toate evenimentele</a></li>
+            <li><a href="#">Despre noi</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/contact_us">Contactează-ne</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Caut&#259">              
+        </div>
+        <button type="submit" class="btn btn-default btn-search" >    
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+      </form> 
+    </div>
+  </nav>
+  {% endblock %}  
 
-<div class="row">
-	<div class="col-md-4 col-md-offset-4">
-	<div class="content content">
-			Logo-ul
-	</div>
-</div>
-</div>
-
-<div class="row">
-	<div class="col-md-8 col-md-offset-2">
-		<div class="content style">
-			descriere
-		</div>
-	</div>
-</div>
-
-	<div class="butoane">
-		<button type="button" class="btn btn-success btn-sm">Vezi ce ti se potriveste</button>
-		<div class="col-md-2 col-md-offset-4">
-		<button type="button" class="btn btn-success btn-sm">Toate Categoriile
-		</button>
-	</div>
-
-	<div class="row">
-		<div class="col-md-2 col-md-offset-2">
-			<div class="content name">
-			event
-			</div>
-		</div>
-
-		<div class="col-md-2 col-md-offset-1">
-			<div class="content name">
-			event
-			</div>
-		</div>
-
-		<div class="col-md-2 col-md-offset-1">
-			<div class="content name">
-			event
-			</div>
-		</div>
-	</div>
-</div>
-
-</div>
-
-</div>
-
-
-
-</div>
-	
-	{% endblock %}
-
+  <div class="container">
+    <div class="col-md-offset-4 ">
+      <img src="../static/dodo.png" style="width:350px;height:100px; text-align:center"> 
+    </div>
+    <p>
+      <h2 style="color:white; text-align:center">
+        Ca sfârșitul să aleagă bine începutul.
+      </h2>
+    </p>   
+    <p>
+      <div class="row">
+        <div class="col-md-offset-3 col-md-3">   
+          <a href="#" class="btn btn-default btn-lg btn-index"><span class="glyphicon glyphicon-circle-arrow-right"></span> Vezi ce ți se potrivește</a>
+        </div>
+        <div class="col-md-offset-7">
+          <a href="/categories" class="btn btn-default btn-lg btn-index"><span class="glyphicon glyphicon-th"></span> Categorii</a>
+        </div>
+      </p>
+    </div>
+  </div>
+  <div class="container">
+    <div class='row'>
+      <div class='col-md-offset-1 col-md-10'>
+        <div class="carousel slide media-carousel" id="media">
+          <div class="carousel-inner">
+            <div class="item  active">
+              <div class="row">
+                <div class=" col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>          
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>        
+              </div>
+            </div>
+            <div class="item">
+              <div class="row">
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>          
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>        
+              </div>
+            </div>
+            <div class="item">
+              <div class="row">
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>          
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x200"></a>
+                </div>
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>      
+              </div>
+            </div>          
+          </div>
+          <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+          <a data-slide="next" href="#media" class="right carousel-control">›</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready(function() {
+      $('#media').carousel({
+        pause: true,
+        interval: false,
+      });
+    });
+   </script>
+ {% endblock %}
+ {% endblock %}
+ {% endblock %}
