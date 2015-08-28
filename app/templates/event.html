@@ -1,70 +1,87 @@
-{% extends 'base.html' %}
 
-{% block content %}
-	<form class = "form " method = "post" action="/event">
-		<div class="form-group input">
-			<H2>Inregistreaza eveniment</H2>	
-		</div>
-		
-		{{form.csrf_token}}
-		<div class="form-group input">
-			{{form.title.label}}
-			{{form.title(class_='form-control', placeholder=form.title.label.text) }}
-		</div>
-		<div class="form-group input">
-			{{form.content.label}}
-			{{form.content(class_='form-control', placeholder=form.title.label.text) }}
-		</div>
-		<div class="form-group" data-date-format="MM/DD/YYYY">
-			{{form.start_date.label}}
-			{{form.start_date(class_='form-control', placeholder=form.start_date.label.text) }}
-		</div>
-		<div class="form-group input">
-			{{form.end_date.label}}
-			{{form.end_date(class_='form-control', placeholder=form.end_date.label.text) }}
-		</div>
-		<div class="form-group input">
-			{{form.published_at.label}}
-			{{form.published_at(class_='form-control', placeholder=form.published_at.label.text) }}
-		</div>
-		<div class="form-group input">
-			{{form.organizer.label}}
-			{{form.organizer(class_='form-control', placeholder=form.organizer.label.text) }}
-		</div>
-		<div class="form-group input">
-			{{form.price.label}}
-			{{form.price(class_='form-control', placeholder=form.price.label.text) }}
-		</div>
-		
-		<div class="form-group">
-			{{form.photo.label}}
-			{{form.photo(class_='form-control', placeholder=form.photo.label.text) }}
-		</div>
+  {% extends 'bootstrap/base.html' %}
+  {% block styles %}
+  {{super()}}
+  <link rel="stylesheet"
+  href="{{url_for('.static', filename='event.css')}}">
+  {% endblock %}
 
-		<div class="form-group input">
-			{{form.additional_info.label}}
-			{{form.additional_info(class_='form-control', placeholder=form.additional_info.label.text) }}
-		</div>
-		<div class="form-group input">
-			{{form.target_group.label}}
-			{{form.target_group(class_='form-control', placeholder=form.target_group.label.text) }}
-		</div>
-		<div class="form-group input">
-			{{form.location.label}}
-			{{form.location(class_='form-control', placeholder=form.location.label.text) }}
-		</div>
-		<div class="form-group input">
-			{{form.phone.label}}
-			{{form.phone(class_='form-control', placeholder=form.phone.label.text) }}
-		</div>
-		<div class="form-group input">
-			{{form.email.label}}
-			{{form.email(class_='form-control', placeholder=form.email.label.text) }}
-		</div>
-		<div class="form-group input">
-			{{form.submit.label}}
-			{{form.submit(class_='form-control', placeholder=form.submit.label.text) }}
-		</div>
-	</form>
-</body>
+  {% block content %}
+
+  <form class="form" method="post" action="/event">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="tabel">
+          <div class="content content">
+            <div class="font">Posteaza un eveniment</div>
+            <div class="form-group input">
+              {{form.csrf_token}}
+              {{form.titlu.label(class="text")}}
+              {{form.titlu(class_='form-control', placeholder=form.titlu.label.text) }}
+
+              {{form.start_date.label(class="text")}}
+              {{form.start_date(class_='form-control', placeholder=form.start_date.label.text) }}
+
+              {{form.end_date.label(class="text")}}
+              {{form.end_date(class_='form-control', placeholder=form.end_date.label.text) }}
+
+              {{form.organizers.label(class="text")}}
+              {{form.organizers(class_='form-control', placeholder=form.organizers.label.text) }}
+
+              {{form.price.label(class="text")}}
+              {{form.price(class_='form-control', placeholder=form.price.label.text) }}
+
+
+              {{form.additional_info.label(class="text")}}
+              {{form.additional_info(class_='form-control', placeholder=form.additional_info.label.text) }}
+
+              {{form.location.label(class="text")}}
+              {{form.location(class_='form-control', placeholder=form.location.label.text) }}
+
+              {{form.phone.label(class="text")}}
+              {{form.phone(class_='form-control', placeholder=form.phone.label.text) }}
+
+
+              <div class="form-group input">
+               {{form.photo.label(class="text")}}
+               {{form.photo(class_='form-control')}}
+
+             </div>
+             <div>
+               {{form.category_id.label(class="text")}}
+               {{form.category_id(class="form-control")}}
+
+             </div>
+
+           </div>
+           {{form.district_id.label(class="text")}}
+           {{form.district_id(class="form-control")}}
+
+         </div>
+
+         <div>
+          {{form.type_event_id.label(class="text")}}
+          {{form.type_event_id(class="form-control")}}
+
+        </div>
+
+        <div>
+        {{form.target_group_id.label(class="text")}}
+          {{form.target_group_id(class="form-control")}}
+
+        </div>
+
+
+        <div class="form-group">
+
+          {{form.submit(class="form-control buton btn btn-danger btn-block btn-lg",
+          placeholder=form.submit.label.text)}}
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</form>
+
 {% endblock %}

@@ -15,19 +15,19 @@
 }
  
 @-keyframes slide {
-    from { background-position-y: 0; }
-        to { background-position-y: 78%; }
+  from { background-position-y: 0; }
+  to { background-position-y: 78%; }
 }
 #background{
-        background-image: url("https://scontent-fra3-1.xx.fbcdn.net/hphotos-xfp1/v/t34.0-12/11913298_408837155993710_635174285_n.jpg?oh=69eed6ac1f0fbdaa24711ed4590c158f&oe=55E072BE");
-        background-size: cover ;
-        background-position: center;
-        background-repeat: repeat-y;
-        background-position-y: 78%;
-        -webkit-animation: slide 8s linear;
-        -moz-animation: slide 8s linear;
-        -0-animation: slide 8s linear;
-        animation: slide 8s linear;
+  background-image: url("/static/dodo.jpg");
+  background-size: cover ;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-position-y: 78%;
+  -webkit-animation: slide 8s linear;
+  -moz-animation: slide 8s linear;
+  -0-animation: slide 8s linear;
+  animation: slide 8s linear;
 }
 .navbar.transparent.navbar-inverse {
    background: rgba(0,0,0,0.7);
