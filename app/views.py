@@ -1,7 +1,7 @@
 from app import app, db
 from forms import SignupForm, EventForm, SigninForm, EventForm, AddImageToEvent
 from flask import render_template, request, redirect
-from app.models import Event, TargetGroup, TypeEvent, Category, District, EventImage
+from app.models import Event, TargetGroup, TypeEvent, Category, District, EventImage, Users
 from datetime import datetime
 
 
@@ -13,10 +13,10 @@ def signup():
 		print form.type_id.data
 		print "method POST - save data to database"
 		print unicode(form.type_id)
-		form_tasks = Signup(nume = form.nume.data, 
+		users = Users(nume = form.nume.data, 
 							email = form.email.data,
 							parola = form.parola.data)
-		db.session.add(form_tasks)
+		db.session.add(users)
 		db.session.commit()
 		return render_template("index.html", form=form)
 	return render_template("signup.html", form=form)
@@ -27,7 +27,6 @@ def event():
 	form = EventForm(request.form, csrf_enabled=True)
 	print request.method
 	if request.method == 'POST':
-
 		print form.target_group_id.data
 		target_group = form.target_group_id.data
 		type_event = form.type_event_id.data
@@ -41,7 +40,6 @@ def event():
 		start_date = form.start_date.data,
 		end_date = form.end_date.data,
 		organizers = form.organizers.data,
-		published_at = form.published_at.data,
 		price = form.price.data,
 		photo = form.photo.data,
 		additional_info = form.additional_info.data,
