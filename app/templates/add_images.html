@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<form class = "form " method = "post" action="/event/{{event_id}}">
+		<div class="form-group input">
+			<H2>Inregistreaza eveniment</H2>	
+		</div>
+		
+		{{form.csrf_token}}
+		<div class="form-group input">
+			{{form.title.label}}
+			{{form.title(class_='form-control', placeholder=form.title.label.text) }}
+		</div>
+		<div class="form-group input">
+			{{form.image_link.label}}
+			{{form.image_link(class_='form-control', placeholder=form.image_link.label.text) }}
+		</div>
+		<div class="form-group btn">
+			{{form.submit.label}}
+			{{form.submit(class_='form-control', placeholder=form.submit.label.text) }}
+		</div>
+	</form>
+{% endblock %}

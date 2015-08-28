@@ -1,0 +1,118 @@
+/*-----------------------------------------*/
+@-webkit-keyframes slide {
+    from { background-position-y: 0; }
+    to { background-position-y: 78%; }
+}
+ 
+@-moz-keyframes slide {
+    from { background-position-y: 0; }
+        to { background-position-y: 78%; }
+}
+ 
+@-o-keyframes slide {
+    from { background-position-y: 0; }
+        to { background-position-y: 78%; }
+}
+ 
+@-keyframes slide {
+    from { background-position-y: 0; }
+        to { background-position-y: 78%; }
+}
+#background{
+        background-image: url("https://scontent-fra3-1.xx.fbcdn.net/hphotos-xfp1/v/t34.0-12/11913298_408837155993710_635174285_n.jpg?oh=69eed6ac1f0fbdaa24711ed4590c158f&oe=55E072BE");
+        background-size: cover ;
+        background-position: center;
+        background-repeat: repeat-y;
+        background-position-y: 78%;
+        -webkit-animation: slide 8s linear;
+        -moz-animation: slide 8s linear;
+        -0-animation: slide 8s linear;
+        animation: slide 8s linear;
+}
+.navbar.transparent.navbar-inverse {
+   background: rgba(0,0,0,0.7);
+}
+ 
+.navbar-inverse{
+        border-color:#423B3B;
+}
+ 
+.btn{
+ 
+        background: transparent;
+        /*color: #F2F2F2;*/
+        border-color: #807575;
+ 
+        /* CSS Transition */
+        -webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+        -moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+        -ms-transition: background .2s ease-in-out, border .2s ease-in-out;
+        -o-transition: background .2s ease-in-out, border .2s ease-in-out;
+        transition: background .2s ease-in-out, border .2s ease-in-out;
+}
+ 
+.btn-index{
+        color:white;
+        background-color: rgba(220,220,220,0.2)
+}
+.btn-search{
+        color:#9d9d9d;
+}
+input{
+       background-color:rgba(0,0,0,0) !important;
+       border-color: #807575 !important;
+    }
+ 
+   .media-carousel
+{
+  margin-bottom: 0;
+  padding: 0 40px 30px 40px;
+  margin-top: 113px;
+}
+/* Previous button  */
+.media-carousel .carousel-control.left
+{
+  left: -15px;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width : 40px;
+  margin-top: 80px
+}
+/* Next button  */
+.media-carousel .carousel-control.right
+{
+  right: -15px !important;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width : 40px;
+  margin-top: 80px
+}
+/* Changes the position of the indicators */
+.media-carousel .carousel-indicators
+{
+  right: 50%;
+  top: auto;
+  bottom: 0px;
+  margin-right: -19px;
+}
+/* Changes the colour of the indicators */
+.media-carousel .carousel-indicators li
+{
+  background: #c0c0c0;
+}
+.media-carousel .carousel-indicators .active
+{
+  background: #333333;
+}
+body, html {
+        height: 100%;
+}
+#background {
+        min-height: 100%;
+}

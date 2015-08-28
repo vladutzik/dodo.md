@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" 
+  href="{{url_for('.static', filename='main.css')}}">
+{% endblock %}
+
+{% block content %}
+<!-- <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Dodo</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling ->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>
+      <li><a href="event">Eveniment</a></li>
+      <li><a href="signup">Login</a></li>
+      </ul>  
+    </div><!/.navbar-collapse ->
+  </div><!-- /.container-fluid ->
+</nav>-->
+ <form class = "form animated flipInX" method = "post" action="/">
+
+	
+	<div class="row">
+	<h2>Loghează-te</h2>
+		{{form.csrf_token}}
+			<div class="form-group input">
+				{{form.nume.label}}
+				{{form.nume(class_='form-control', placeholder=form.nume.label.text) }}
+			</div>
+
+			<div class="form-group input">
+				{{form.parola.label}}
+				{{form.parola(class_='form-control', placeholder=form.nume.label.text) }}
+			</div>
+
+			<div class="form-group input">
+				{{form.confirma_parola.label}}
+				{{form.confirma_parola(class_='form-control', placeholder=form.nume.label.text) }}
+			</div>
+
+			<div class = "form-group submit">
+				{{form.submit(class_='form-control', placeholder=form.nume.label.text) }}
+			</div>
+		</div>
+	</form>
+</body>
+{% endblock %}
