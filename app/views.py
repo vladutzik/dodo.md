@@ -1,7 +1,7 @@
 from app import app, db
-from forms import SignupForm, EventForm, SigninForm, EventForm, AddImageToEvent
+from forms import SignupForm, EventForm, SigninForm, EventForm, AddImageToEvent, AddCategoryForm
 from flask import render_template, request, redirect
-from app.models import Event, TargetGroup, TypeEvent, Category, District, EventImage, Users
+from models import Event, TargetGroup, TypeEvent, Category, District, EventImage, Category, Users
 from datetime import datetime
 
 
@@ -122,4 +122,19 @@ def categories():
 
 @app.route('/contact_us')
 def contact_us():
+	# form = ContactUsForm()
+	# if form.validate_on_submit():
+	# 	print form.email.data, form.message.data
+	# 	return render_template("index_dodo.html")
 	return render_template('/contact_us.html')
+
+
+@app.route('/category/add',methods=['GET', 'POST'])
+def add_category():
+	form = AddCategoryForm()
+	if request.method == 'POST' :
+		category = Category(form.name.data)
+		db.session.add(category)
+		db.session.commit()
+		return render_template('index.html')
+	return render_template('add_category.html',form=form)
