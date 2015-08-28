@@ -119,7 +119,8 @@ body{
 	height: 100%;
 	background: center center fixed no-repeat;
 	margin-top: 70px;
-	background-image: url("dodo.jpg");
+	/*background-image: url("http://thewallpaperhost.com/wp-content/uploads/2014/12/inclined-abstract-lines_836723.jpg");*/
+	background-image: url("http://hdw.datawallpaper.com/abstract/abstract-background-for-mac-wide-wallpaper-583162.jpg");
 	background-size: cover ;
 	/*background-position: center fixed;*/
 	background-repeat: repeat-y;
@@ -127,9 +128,21 @@ body{
 	-webkit-animation: slide 8s linear;
 	-moz-animation: slide 8s linear;
 	-0-animation: slide 8s linearx;
-	animation: slide 8s linear;
+	animation: slide 8s linear;	
 	
 }
+
+.opac_wall {
+	height: 100%;
+	width:100%;
+	background : rgba(254, 255, 255, 0.2);
+	display: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	/*background-color: #FFFFFF;*/
+}
+
 html{
 	height: 100%;
 }
@@ -827,4 +840,12 @@ submitfield {
 #contact-form input, #contact-form textarea {
 	color: black;
 	background-color: white !important;
+}
+
+.margin_top_60 {
+	margin-top: 60px;
+}
+
+.margin_top_30 {
+	margin-top: 30px;
 }

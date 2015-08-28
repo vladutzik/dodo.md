@@ -57,11 +57,12 @@ def event():
 
 @app.route('/')
 def index():
+	event = Event.query.get(2)
 	animals_list = ['Enot', 'Elefant', 'Enot2', 'Zebra']
 	today = datetime.now()
 	new_day = today.day
 	print "index"
-	return render_template("index.html", day = new_day, animals = animals_list, best_animal = "Mark")
+	return render_template("index.html", day = new_day, animals = animals_list, best_animal = "Mark", event = event)
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
