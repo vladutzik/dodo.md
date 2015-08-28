@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sign Up</title>
+	</head>
+	<body>
+		<div align = 'center'>
+			<form method="post" action="/signup">
+				{{form.csrf_token}}
+					<div> {{form.nume.label}}
+						{{form.nume}} 
+					</div>
+				<br/>
+					<div> {{form.prenume.label}}
+						{{form.prenume}} 
+					</div>
+				<br/>
+					<div> {{form.email.label}}
+						{{form.email}} 
+					</div>
+				<br/>
+					<div> {{form.parola.label}}
+						{{form.parola}} 
+					</div>
+				<br/>
+					<div> {{form.confirma_parola.label}}
+						{{form.confirma_parola}} 
+					</div>
+				<br/>
+					<div> 
+						{{form.submit}} 
+					</div>
+
+			</form>
+		</div>
+	</body>
+</html>
+

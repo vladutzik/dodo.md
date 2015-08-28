@@ -1,0 +1,27 @@
+.font {
+	color:black;
+	background-color: pink;
+}
+
+.crem {
+	background-color: yellow ;
+	color: red
+}
+
+.content {
+	background-color: grey;
+	border: 2px solid #555;
+	height: 160px;
+}
+
+.text {
+	background-color: grey;
+	border: 2px solid #555;
+	height: 80px;
+}
+
+.event {
+	background-color: grey;
+	border: 2px solid #544;
+	height: 150px;
+}
