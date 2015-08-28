@@ -19,7 +19,7 @@ def register():
 	if form.validate_on_submit():
 		print form.nume.data, form.parola.data
 		return render_template("index_dodo.html")
-	return render_template("register.html", form = form)
+	return render_template("signup.html", form = form)
 
 @app.route('/showevent/<int:event_id>', methods = ['GET', 'POST'])
 def show_event(event_id):
