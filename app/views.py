@@ -58,13 +58,6 @@ def event():
 		location = form.location.data,
 		phone = form.phone.data,
 		email = form.email.data,
-	# !!!!!!! ids!!!
-		# # category_id = form.category_id.data,
-		# category = form.category.data,
-		# # district_id = form.district_id.data,
-		# district = form.district.data,
-		# # type_event_id = form.type_event_id.data,
-		# type_event = form.type_event.data
 		)
 		db.session.add(event)
 		db.session.commit()
@@ -74,11 +67,6 @@ def event():
 		# form.populate_obj(event)
 		return redirect("event/{}".format(event.id))
 	return render_template("event.html", form = form)
-
-# def addImageToEvent(id_event, img_link):
-# 	event_img = EventImage(event_id = id_event, image_link = img_link) 
-# 	db.session.add(me)
-# 	db.session.commit()
 
 @app.route('/event/<int:event_id>', methods = ['GET', 'POST'])
 def addImageToEvent(event_id):
@@ -108,4 +96,8 @@ def categories():
 
 @app.route('/contact_us')
 def contact_us():
+	# form = ContactUsForm()
+	# if form.validate_on_submit():
+	# 	print form.email.data, form.message.data
+	# 	return render_template("index_dodo.html")
 	return render_template('/contact_us.html')
