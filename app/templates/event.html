@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<form class = "form " method = "post" action="/event">
+		<div class="form-group input">
+			<H2>Inregistreaza eveniment</H2>	
+		</div>
+		
+		{{form.csrf_token}}
+		<div class="form-group input">
+			{{form.title.label}}
+			{{form.title(class_='form-control', placeholder=form.title.label.text) }}
+		</div>
+		<div class="form-group input">
+			{{form.content.label}}
+			{{form.content(class_='form-control', placeholder=form.title.label.text) }}
+		</div>
+		<div class="form-group" data-date-format="MM/DD/YYYY">
+			{{form.start_date.label}}
+			{{form.start_date(class_='form-control', placeholder=form.start_date.label.text) }}
+		</div>
+		<div class="form-group input">
+			{{form.end_date.label}}
+			{{form.end_date(class_='form-control', placeholder=form.end_date.label.text) }}
+		</div>
+		<div class="form-group input">
+			{{form.published_at.label}}
+			{{form.published_at(class_='form-control', placeholder=form.published_at.label.text) }}
+		</div>
+		<div class="form-group input">
+			{{form.organizer.label}}
+			{{form.organizer(class_='form-control', placeholder=form.organizer.label.text) }}
+		</div>
+		<div class="form-group input">
+			{{form.price.label}}
+			{{form.price(class_='form-control', placeholder=form.price.label.text) }}
+		</div>
+		
+		<div class="form-group">
+			{{form.photo.label}}
+			{{form.photo(class_='form-control', placeholder=form.photo.label.text) }}
+		</div>
+
+		<div class="form-group input">
+			{{form.additional_info.label}}
+			{{form.additional_info(class_='form-control', placeholder=form.additional_info.label.text) }}
+		</div>
+		<div class="form-group input">
+			{{form.target_group.label}}
+			{{form.target_group(class_='form-control', placeholder=form.target_group.label.text) }}
+		</div>
+		<div class="form-group input">
+			{{form.location.label}}
+			{{form.location(class_='form-control', placeholder=form.location.label.text) }}
+		</div>
+		<div class="form-group input">
+			{{form.phone.label}}
+			{{form.phone(class_='form-control', placeholder=form.phone.label.text) }}
+		</div>
+		<div class="form-group input">
+			{{form.email.label}}
+			{{form.email(class_='form-control', placeholder=form.email.label.text) }}
+		</div>
+		<div class="form-group input">
+			{{form.submit.label}}
+			{{form.submit(class_='form-control', placeholder=form.submit.label.text) }}
+		</div>
+	</form>
+</body>
+{% endblock %}

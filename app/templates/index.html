@@ -1,0 +1,142 @@
+{% extends "bootstrap/base.html" %}
+ 
+{% block head %}
+{% block metas %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock metas %}
+ 
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="../static/home.css">
+{% endblock %}
+{% endblock %}
+ 
+{% block body %}
+<div id='background'>
+  {% block content %}
+  {% block navbar %}
+  <nav class="navbar transparent navbar-inverse ">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>        
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+      <a class="navbar-brand" href="#"><img src="../static/dr.png"></a>
+      <ul class="nav navbar-nav navbar-right">
+ 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Aboneaza-te</a></li>
+            <li><a href="#">Vezi toate evenimentele</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Caut&#259">              
+        </div>
+        <button type="submit" class="btn btn-default btn-search" >    
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+      </form>
+    </div>
+  </nav>
+  {% endblock %}  
+ 
+  <div class="container">
+    <div class="col-md-offset-4 ">
+      <img src="../static/dodo.png" style="width:350px;height:100px; text-align:center">  
+    </div>
+    <p>
+      <h2 style="color:white; text-align:center">
+        Ca sfârșitul să aleagă bine începutul.
+      </h2>
+    </p>  
+    <p>
+      <div class="row">
+        <div class="col-md-offset-3 col-md-3">  
+          <a href="#" class="btn btn-default btn-lg btn-index"><span class="glyphicon glyphicon-circle-arrow-right"></span> Vezi ce ți se potrivește</a>
+        </div>
+        <div class="col-md-offset-7">
+          <a href="#" class="btn btn-default btn-lg btn-index"><span class="glyphicon glyphicon-th"></span> Categorii</a>
+        </div>
+      </p>
+    </div>
+  </div>
+  <div class="container">
+    <div class='row'>
+      <div class='col-md-offset-1 col-md-10'>
+        <div class="carousel slide media-carousel" id="media">
+          <div class="carousel-inner">
+            <div class="item  active">
+              <div class="row">
+                <div class=" col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>          
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>        
+              </div>
+            </div>
+            <div class="item">
+              <div class="row">
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>          
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>        
+              </div>
+            </div>
+            <div class="item">
+              <div class="row">
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>          
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x200"></a>
+                </div>
+                <div class="col-md-4">
+                  <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x200"></a>
+                </div>      
+              </div>
+            </div>          
+          </div>
+          <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+          <a data-slide="next" href="#media" class="right carousel-control">›</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready(function() {
+      $('#media').carousel({
+        pause: true,
+        interval: false,
+      });
+    });
+   </script>
+ {% endblock %}
+ {% endblock %}
+ {% endblock %}
