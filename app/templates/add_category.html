@@ -1,0 +1,30 @@
+	<<!DOCTYPE html>
+	<html>
+	<head>
+		<title>add_category</title>
+	</head>
+	<body>
+		<div align = 'center'>
+			<form method="POST" action='/category/add'>
+				<div> {{form.name.label}} </br> </br>
+					{{form.name}} 
+				</div>
+			</form>
+			<form>
+			</br>
+				<div>
+				</br>
+					{{form.photo.label}} 
+					</br> </br>
+					{{form.photo}}
+				</div>
+			</form>
+			<form>
+				<div>
+				</br>
+					{{form.submit}}
+				</div>
+			</form>
+		</div>
+	</body>
+	</html>

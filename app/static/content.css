@@ -1,0 +1,24 @@
+.content {
+	background-color: #B87333;
+	border: 1px solid #555;
+	height: 180px;
+	margin-top: 15px
+}
+
+.style {
+	background-color: #B87333;
+	border: 1px solid #555;
+	height: 80px;
+	margin-top: 0px
+}
+.butoane {
+	
+
+	height: 40px;
+	margin-top: 30px;
+
+}
+.name {
+	height: 170px;
+	margin-top: 40px;
+}
