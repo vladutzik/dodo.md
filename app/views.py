@@ -80,6 +80,15 @@ def show_event(event_id):
 	print event
 	return render_template("show_event.html", event = event)
 
+@app.route('/listevents', methods = ['GET', 'POST'])
+def list_events():
+	# for event_id in
+	#event_title = Event.query.filter_by(title=title).first_or_404()
+	events = Event.query.all()
+	 # print event, event_id
+	print events
+	return render_template("list_events.html", events = events)
+
 
 @app.route('/signin', methods = ['POST', 'GET'])
 def signin():
