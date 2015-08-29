@@ -5,14 +5,13 @@ from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from models import Category 
 from models import District
 from models import TypeEvent
-from models import TargetGroup
-
+from models import TargetGroup, UserType
 
 
 class SignupForm(Form):
 	nume = TextField('Nume')
 	email = TextField('Email')
-	type_id = QuerySelectField ('Alege tipul utilizatorului', query_factory=lambda: TypeEvent.query, get_label='name', allow_blank=True)
+	user_type_id = QuerySelectField ('Alege tipul utilizatorului', query_factory=lambda: UserType.query, get_label='name', allow_blank=True)
 	parola = PasswordField('Parola')
 	confirma_parola = PasswordField('Confirma Parola')
 	submit = SubmitField('Sign Up')
