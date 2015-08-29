@@ -1,4 +1,4 @@
-{% extends 'bootstrap/base.html' %}
+{% extends 'base.html' %}
 {% block styles %}
 {{super()}}
 <link rel="stylesheet"
@@ -57,6 +57,13 @@
                   <div class="form-group">
                     <input type="text" name="nume" id="nume" tabindex="1" class="form-control" placeholder="Nume" value="">
                   </div>
+                  <div>
+                      {{form.user_type_id.label(class="text")}}
+                      {{form.user_type_id(class="form-control")}}
+
+
+                  </div>
+                  </br>
                   <div class="form-group">
                     <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
                   </div>

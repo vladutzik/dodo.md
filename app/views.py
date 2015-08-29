@@ -1,7 +1,7 @@
 from app import app, db
-from forms import SignupForm, EventForm, SigninForm, EventForm, AddImageToEvent, AddCategoryForm
+from forms import SignupForm, EventForm, AddImageToEvent
 from flask import render_template, request, redirect
-from models import Event, TargetGroup, TypeEvent, Category, District, EventImage, Category
+from app.models import Event, TargetGroup, TypeEvent, Category, District, EventImage, Users
 from datetime import datetime
 
 
@@ -10,12 +10,19 @@ def signup():
 	form = SignupForm(request.form, csrf_enabled=True)
 	print request.method
 	if request.method == 'POST':
-		print form.type_id.data
+
+		print form.user_type_id.data
+		user_type = form.user_type_id.data
+		
+		print user_type
+		print form.user_type_id.data
+		print request.method
 		print "method POST - save data to database"
-		print unicode(form.type_id)
-		form_tasks = Signup(nume = form.nume.data, 
+		print unicode(form.user_type_id)
+		form_tasks = Users(nume = form.nume.data, 
 							email = form.email.data,
-							parola = form.parola.data)
+							parola = form.parola.data,
+							user_type_id= form.user_type_id.data.id)
 		db.session.add(form_tasks)
 		db.session.commit()
 		return render_template("index.html", form=form)
@@ -27,7 +34,6 @@ def event():
 	form = EventForm(request.form, csrf_enabled=True)
 	print request.method
 	if request.method == 'POST':
-
 		print form.target_group_id.data
 		target_group = form.target_group_id.data
 		type_event = form.type_event_id.data
@@ -41,7 +47,6 @@ def event():
 		start_date = form.start_date.data,
 		end_date = form.end_date.data,
 		organizers = form.organizers.data,
-		published_at = form.published_at.data,
 		price = form.price.data,
 		photo = form.photo.data,
 		additional_info = form.additional_info.data,
@@ -59,11 +64,12 @@ def event():
 
 @app.route('/')
 def index():
+	event = Event.query.get(2)
 	animals_list = ['Enot', 'Elefant', 'Enot2', 'Zebra']
 	today = datetime.now()
 	new_day = today.day
 	print "index"
-	return render_template("index.html", day = new_day, animals = animals_list, best_animal = "Mark")
+	return render_template("index.html", day = new_day, animals = animals_list, best_animal = "Mark", event = event)
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
@@ -80,6 +86,15 @@ def show_event(event_id):
 	 # print event, event_id
 	print event
 	return render_template("show_event.html", event = event)
+
+@app.route('/listevents', methods = ['GET', 'POST'])
+def list_events():
+	# for event_id in
+	#event_title = Event.query.filter_by(title=title).first_or_404()
+	events = Event.query.all()
+	 # print event, event_id
+	print events
+	return render_template("list_events.html", events = events)
 
 
 @app.route('/signin', methods = ['POST', 'GET'])
@@ -129,6 +144,10 @@ def contact_us():
 	# 	print form.email.data, form.message.data
 	# 	return render_template("index_dodo.html")
 	return render_template('/contact_us.html')
+
+@app.route('/about_us')
+def about_us():
+	return render_template('/about_us.html')
 
 
 @app.route('/category/add',methods=['GET', 'POST'])
