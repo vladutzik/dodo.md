@@ -1,22 +1,3 @@
-
-
-.navbar.transparent.navbar-inverse {
-   background: rgba(0,0,0,0.7);
-}
-
-.navbar-inverse{
-	border-color:#423B3B;
-}
-
-.navbar {
-	top:0;
-	left: 0;
-	position: fixed;
-	width: 100%;
-	z-index: 9999;
-}
-
-
 @-webkit-keyframes slide {
     from { background-position-y: 0; }
     to { background-position-y: 78%; }
@@ -38,7 +19,21 @@
 }
 
 
+.navbar.transparent.navbar-inverse {
+   background: rgba(0,0,0,0.7);
+}
 
+.navbar-inverse{
+	border-color:#423B3B;
+}
+
+.navbar {
+	top:0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
+}
 
 .btn{
 
@@ -61,6 +56,7 @@
 .btn-search{
 	color:#9d9d9d;
 }
+
 body{
 	height: 100%;
 	background: center center fixed no-repeat;

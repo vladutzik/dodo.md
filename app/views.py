@@ -1,8 +1,16 @@
 from app import app, db
+from app import login_manager
 from forms import SignupForm, EventForm, AddImageToEvent, SigninForm
 from flask import render_template, request, redirect
 from app.models import Event, TargetGroup, TypeEvent, Category, District, EventImage, Users
 from datetime import datetime
+from flask.ext.login import login_user, login_required, logout_user
+
+
+
+@login_manager.user_loader
+def load_user(userid):
+    return Users.query.get(userid)
 
 
 @app.route('/signup', methods=['GET','POST'])
@@ -11,25 +19,21 @@ def signup():
 	print request.method
 	if request.method == 'POST':
 
-		print form.user_type_id.data
 		user_type = form.user_type_id.data
 		
-		print user_type
-		print form.user_type_id.data
-		print request.method
 		print "method POST - save data to database"
-		print unicode(form.user_type_id)
+		print form.parola.data
 		form_tasks = Users(nume = form.nume.data, 
 							email = form.email.data,
 							parola = form.parola.data,
-							user_type_id= form.user_type_id.data.id)
+							user_type_id= form.user_type_id.data)
 		db.session.add(form_tasks)
 		db.session.commit()
 		return redirect('/')
 	return render_template("signup.html", form=form)
 
-
 @app.route('/event', methods=['GET','POST'])
+@login_required
 def event():
 	form = EventForm(request.form, csrf_enabled=True)
 	print request.method
@@ -40,9 +44,10 @@ def event():
 		category = form.category_id.data
 		district = form.district_id.data
 		print target_group, type_event, category, district
+
 		print "method POST - save data to database"
 		print unicode(form.district_id)
-		event = Event(titlu = form.titlu.data, 
+		form_tasks = Event(titlu = form.titlu.data, 
 		start_date = form.start_date.data,
 		end_date = form.end_date.data,
 		organizers = form.organizers.data,
@@ -55,9 +60,9 @@ def event():
 		category_id = category.id,
 		district_id = district.id)
 		# form.populate_obj(form_tasks)
-		db.session.add(event)
+		db.session.add(form_tasks)
 		db.session.commit()
-		return redirect("showevent/{}".format(event.id))
+		return render_template("index.html", form=form)
 	return render_template("event.html", form=form)
 
 
@@ -73,7 +78,7 @@ def register():
 	form = RegisterForm()
 	if form.validate_on_submit():
 		print form.nume.data, form.parola.data
-		return redirect("index.html")
+		return render_template("index.html", event)
 	return render_template("signup.html", form = form)
 
 @app.route('/showevent/<int:event_id>', methods = ['GET', 'POST'])
@@ -98,11 +103,18 @@ def list_events():
 
 @app.route('/signin', methods = ['POST', 'GET'])
 def signin():
-	form = SigninForm()
+	form = SignupForm()
+	error = ''
 	if form.validate_on_submit():
-		print form.nume.data, form.parola.data
+		print '************'
+		print form.email.data
+		user = Users.query.filter_by(email=form.email.data).first()
+		login_user(user)
+
+		print 'logged in successfully'
+
 		return redirect('/')
-	return render_template("signin.html", form = form)
+	return render_template("signup.html", form = form, error=error)
 
 
 # def addImageToEvent(id_event, img_link):
@@ -111,6 +123,7 @@ def signin():
 # 	db.session.commit()
 
 @app.route('/event/<int:event_id>', methods = ['GET', 'POST'])
+@login_required
 def addImageToEvent(event_id):
 	form = AddImageToEvent(request.form, csrf_enabled=True)
 	if request.method == 'POST':
@@ -120,16 +133,6 @@ def addImageToEvent(event_id):
 		db.session.commit()
 		return redirect("showevent/{}".format(event_id))
 	return render_template("add_images.html", form = form, event_id = event_id)
-
-@app.route('/date')
-def date():
-	today = datetime.now()
-	return "Azi este " + str(today.day) + "." + str(today.month) + "." +\
-	 str(today.year) + ", ora " + str(today.hour) + ":" + str(today.minute) + ":" + str(today.second)
-
-@app.route('/user/<name>')
-def user(name):
-	return 'Hello ' + str(name) + "!!!"
 
 
 @app.route('/categories')
@@ -150,6 +153,7 @@ def about_us():
 
 
 @app.route('/category/add',methods=['GET', 'POST'])
+@login_required
 def add_category():
 	form = AddCategoryForm()
 	if request.method == 'POST' :
@@ -158,3 +162,10 @@ def add_category():
 		db.session.commit()
 		return render_template('index.html')
 	return render_template('add_category.html',form=form)
+
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect('/')
+

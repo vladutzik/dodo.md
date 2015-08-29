@@ -57,7 +57,7 @@ class AddCategoryForm(Form):
 class SigninForm(Form):
 	nume = TextField("Nume")
 	parola = PasswordField("Parola")
-	confirma_parola = PasswordField("Confirma parola")
+	user_type_id = QuerySelectField ('Alege tipul utilizatorului', query_factory=lambda: UserType.query, get_label='name', allow_blank=True)
 	submit = SubmitField("Log in")
 
 # class SelectPhotoForm(Form):
