@@ -63,11 +63,10 @@ class Users(db.Model):
 	nume = db.Column(db.String(255))
 	email = db.Column(db.String(40))
 	parola = db.Column(db.String(20))
-
 	user_type_id = db.Column(db.Integer, db.ForeignKey('user_types.id'))
 	user_type = db.relationship('UserType', 
 		backref=db.backref('users', lazy='dynamic',order_by= id))
-	phone = db.Column(db.Integer)
+	
 
 
 # from datetime import datetime
