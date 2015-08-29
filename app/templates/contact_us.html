@@ -29,7 +29,7 @@
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
-      <a class="navbar-brand" href="#"><img src="../static/dr.png"></a>
+      <a class="navbar-brand" href="/"><img src="../static/dr.png"></a>
       <ul class="nav navbar-nav navbar-right">
 
         <li class="dropdown">
@@ -39,7 +39,7 @@
             <li><a href="#">Vezi toate evenimentele</a></li>
             <li><a href="#">Despre noi</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Contactează-ne</a></li>
+            <li><a href="/contact_us">Contactează-ne</a></li>
           </ul>
         </li>
       </ul>
@@ -56,64 +56,95 @@
   {% endblock %}  
 
   <section class="contact-us" id="contact">
-<div class="container">
-  
-  <!-- SECTION HEADER -->
-        <div class="section-header">
-    
-    <!-- SECTION TITLE -->
-    <h2 class="white-text">Contactează-ne!</h2>
-    
-    <!-- SHORT DESCRIPTION ABOUT THE SECTION -->
-    <h6 class="white-text">
-      Ai ceva întrebări, propuneri, feedback? Trimite-ne un mesaj.
-    </h6>
-  </div>
-  <div class="row">
-    <form role="form" class="contact-form" id="contact-form">
-      <div style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;" class="wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-      <div class="col-lg-4 col-sm-4">
-        <input name="Nume" placeholder="Nume" class="form-control input-box" id="name" type="text">
+    <div class="container">
+
+      <!-- SECTION HEADER -->
+      <div class="section-header">
+
+        <!-- SECTION TITLE -->
+        <h2 class="white-text">Contactează-ne!</h2>
+
+        <!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+        <h6 class="white-text">
+          Ai ceva întrebări, propuneri, feedback? Trimite-ne un mesaj.
+        </h6>
       </div>
-      <div class="col-lg-4 col-sm-4">
-        <input name="Email" placeholder="Email" class="form-control input-box" id="email" type="email">
-      </div>
-      <div class="col-lg-4 col-sm-4">
-        <input name="Subiect" placeholder="Subiect" class="form-control input-box" id="subject" type="text">
-      </div>
-      </div>
-      
-      <div style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;" class="col-md-12 wow fadeInRight animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-        <textarea name="message" class="form-control textarea-box" placeholder="Mesaj" id="message"></textarea>
-      </div>
-      <!-- IF MAIL SENT SUCCESSFULLY -->
-          <h4 class="success pull-left white-text">
-            Mesajul tău a fost trimis cu succes.
-          </h4>
+      <form role="form" class="contact-form" id="contact-form">
+
+        <div class="row">
+          <div style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;" class="wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+            <div class="col-lg-4 col-sm-4">
+              <input name="Nume" placeholder="Nume" class="form-control input-box" id="name" type="text">
+            </div>
+            <div class="col-lg-4 col-sm-4">
+              <input name="Email" placeholder="Email" class="form-control input-box" id="email" type="email">
+            </div>
+            <div class="col-lg-4 col-sm-4">
+              <input name="Subiect" placeholder="Subiect" class="form-control input-box" id="subject" type="text">
+            </div>
+          </div>
+
+          <div style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;" class="col-md-12 wow fadeInRight animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+            <textarea name="message" class="form-control textarea-box" placeholder="Mesaj" id="message"></textarea>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 response"></div>
+          </div>
+            
           
-          <!-- IF MAIL SENDING UNSUCCESSFULL -->
-          <h4 class="error pull-left white-text">
-            Email-ul trebuie să fie valid și să conțină cel puțin 2 caractere.
-          </h4>
-      <button style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;" class="btn btn-default btn-lg btn-index wow fadeInLeft animated animated" id="submit" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" type="submit">Trimite mesajul</button>
-    </form>
-  </div>
-  <!-- / END CONTACT FORM-->
-</div> <!-- / END CONTAINER -->
-</section>
-  </div>
+        </div>
+          <div class="row contact-submit">
+            <div class="col-md-2">
+              <button style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;" class="btn btn-default btn-lg btn-index wow fadeInLeft animated animated" id="submit" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" type="submit">Trimite mesajul</button>
+            </div>
+
+          </div>
+        </form>
+        <!-- / END CONTACT FORM-->
+        <!-- / END CONTAINER -->
+      </section>
+    </div>
   </div>
   {% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-     $(document).ready(function() {
-      $('#media').carousel({
-        pause: true,
-        interval: false,
-      });
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+   $(document).ready(function() {
+    $('#media').carousel({
+      pause: true,
+      interval: false,
     });
-   </script>
+
+    console.log($('#contact-form'))
+   $('#contact-form').on('submit', function(e){
+    e.preventDefault();
+    var data = {}
+    data.text   = $('#message').val()
+    data.from   = $('#email').val()
+    data.subject = $('#subject').val()
+    data.name   = $('#name').val()
+
+    error = function(){
+      $('.response').html('<h4 class="error pull-left white-text">A intervenit o eroare, ne pare rău. Încercați mai tîrziu.</h4>');
+    }
+
+    if( data.text.length && data.from.length && data.subject.length && data.name.length ){
+      data.to = 'dodomoldova@gmail.com'
+      $.post('http://send.zazzymail.com', data, function(response){
+        if( response == 'OK' ){
+          $('.response').html('<h4 class="success pull-left white-text">Mesajul tău a fost trimis cu succes.</h4>')
+        } else {
+            error()
+        }
+      })
+    } else 
+      error()
+
+   })
+
+  });
+ </script>
  {% endblock %}
  {% endblock %}
  {% endblock %}
