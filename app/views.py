@@ -1,5 +1,5 @@
 from app import app, db
-from forms import SignupForm, EventForm, AddImageToEvent
+from forms import SignupForm, EventForm, AddImageToEvent, SigninForm
 from flask import render_template, request, redirect
 from app.models import Event, TargetGroup, TypeEvent, Category, District, EventImage, Users
 from datetime import datetime
@@ -97,7 +97,7 @@ def signin():
 	form = SigninForm()
 	if form.validate_on_submit():
 		print form.nume.data, form.parola.data
-		return redirect("index.html")
+		return redirect('/')
 	return render_template("signin.html", form = form)
 
 
