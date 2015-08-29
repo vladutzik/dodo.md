@@ -44,9 +44,10 @@ def event():
 		category = form.category_id.data
 		district = form.district_id.data
 		print target_group, type_event, category, district
+
 		print "method POST - save data to database"
 		print unicode(form.district_id)
-		event = Event(titlu = form.titlu.data, 
+		form_tasks = Event(titlu = form.titlu.data, 
 		start_date = form.start_date.data,
 		end_date = form.end_date.data,
 		organizers = form.organizers.data,
@@ -59,9 +60,9 @@ def event():
 		category_id = category.id,
 		district_id = district.id)
 		# form.populate_obj(form_tasks)
-		db.session.add(event)
+		db.session.add(form_tasks)
 		db.session.commit()
-		return redirect("showevent/{}".format(event.id))
+		return render_template("index.html", form=form)
 	return render_template("event.html", form=form)
 
 
@@ -75,7 +76,7 @@ def register():
 	form = RegisterForm()
 	if form.validate_on_submit():
 		print form.nume.data, form.parola.data
-		return redirect("index.html")
+		return render_template("index.html", event)
 	return render_template("signup.html", form = form)
 
 @app.route('/showevent/<int:event_id>', methods = ['GET', 'POST'])

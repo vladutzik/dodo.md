@@ -1,3 +1,5 @@
+from werkzeug.security import generate_password_hash, \
+     check_password_hash
 from flask.ext.login import UserMixin
 from app import db
 from datetime import datetime
@@ -67,7 +69,19 @@ class Users(db.Model, UserMixin):
 	user_type_id = db.Column(db.Integer, db.ForeignKey('user_types.id'))
 	user_type = db.relationship('UserType', 
 		backref=db.backref('users', lazy='dynamic',order_by= id))
-	
+
+	def __init__(self, nume, email, parola, user_type_id):
+		self.nume = nume
+		self.email = email
+		self.user_type_id = user_type_id
+		self.set_password(parola)
+
+	def set_password(self, password):
+		self.parola = generate_password_hash(password)
+
+	def check_password(self, password):
+		return check_password_hash(self.pw_hash, password)
+
 	def is_active(self):
 		return True
 
