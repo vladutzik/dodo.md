@@ -1,16 +1,15 @@
-
 {% extends 'base.html' %}
 {% block styles %}
 {{super()}}
 <link rel="stylesheet"
-href="{{url_for('.static', filename='event.css')}}">
+href="{{url_for('.static', filename='event.css')}}"> 
 {% endblock %}
 
 {% block content %}
 
 <form class="form" method="post" action="/event">
   <div class="content content">
-    <div class="font">Posteaza un eveniment</div>
+    <div class="font" align = "center"><h1>Postează un eveniment</h1></div>
     <div class="form-group input">
       {{form.csrf_token}}
       <div class="form-group input">
@@ -36,10 +35,6 @@ href="{{url_for('.static', filename='event.css')}}">
       <div class="form-group input">
         {{form.additional_info.label(class="text")}}
         {{form.additional_info(class_='form-control', placeholder=form.additional_info.label.text) }}
-      </div>
-      <div class="form-group input">
-        {{form.location.label(class="text")}}
-        {{form.location(class_='form-control', placeholder=form.location.label.text) }}
       </div>
       <div class="form-group input">
         {{form.phone.label(class="text")}}
