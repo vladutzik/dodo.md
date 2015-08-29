@@ -25,7 +25,7 @@ def signup():
 							user_type_id= form.user_type_id.data.id)
 		db.session.add(form_tasks)
 		db.session.commit()
-		return render_template("index.html", form=form)
+		return redirect('/')
 	return render_template("signup.html", form=form)
 
 
@@ -65,18 +65,14 @@ def event():
 @app.route('/')
 def index():
 	event = Event.query.get(2)
-	animals_list = ['Enot', 'Elefant', 'Enot2', 'Zebra']
-	today = datetime.now()
-	new_day = today.day
-	print "index"
-	return render_template("index.html", day = new_day, animals = animals_list, best_animal = "Mark", event = event)
+	return render_template("index.html", event = event)
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
 	form = RegisterForm()
 	if form.validate_on_submit():
 		print form.nume.data, form.parola.data
-		return render_template("index_dodo.html")
+		return render_template("index.html", event)
 	return render_template("signup.html", form = form)
 
 @app.route('/showevent/<int:event_id>', methods = ['GET', 'POST'])
