@@ -1,16 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'show_event.html' %}
 
 {% block styles %}
 {{super()}}
 <link rel="stylesheet" 
-href="{{url_for('.static', filename='main.css')}}">
-<!-- Bootstrap Core CSS -->
+  href="{{url_for('.static', filename='main.css')}}">
 {% endblock %}
 
-
 {% block content %}
-
-<div class = "form animated flipInX" >
+	<div class="ro">
+	{% for event in events %}
+		<!-- <a href="/showevent/{{event.id}}"><h1>{{event.titlu}}</h1></a>	 -->
+		<div class = "form animated flipInX" >
 
 	<div class="form-group" align="center">
 		<h1>{{event.titlu}}</h1>
@@ -136,15 +136,11 @@ href="{{url_for('.static', filename='main.css')}}">
 	</p>
 	{% endfor %}
 </div> -->
+</div>
+</div>
 
-<!-- Footer -->
-<footer>
-	<div class="row">
-		<div class="col-xs-12">
-			<p>Copyright &copy; dodo 2015	</p>
-		</div>
-	</div>
-	<!-- /.row -->
-</footer>
+	{% endfor %}
+
+
 
 {% endblock %}

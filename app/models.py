@@ -1,4 +1,5 @@
 from app import db
+from datetime import datetime
 
 class Category(db.Model):
 	__tablename__='categories'
@@ -27,10 +28,10 @@ class Event(db.Model):
 	start_date = db.Column(db.DateTime)
 	end_date = db.Column(db.DateTime, nullable=True)
 	organizers = db.Column(db.String(255))
-	published_at = db.Column(db.DateTime)
+	published_at = db.Column(db.DateTime, default=datetime.utcnow)
 	price = db.Column(db.Integer,nullable=True)
 	location = db.Column(db.Text)
-	photo = db.Column(db.String(255),nullable=True)
+	photo = db.Column(db.String(255))
 	additional_info = db.Column(db.Text,nullable=True)
 	
 	district_id = db.Column(db.Integer, db.ForeignKey('districts.id'))
@@ -46,12 +47,10 @@ class Event(db.Model):
 	type_event_id = db.Column(db.Integer, db.ForeignKey('typeevent.id'))
 	type_event = db.relationship('TypeEvent', 
 		backref=db.backref('events', lazy='dynamic',order_by= id))
-	phone = db.Column(db.Integer)
 
 	target_group_id = db.Column(db.Integer, db.ForeignKey('targetgroup.id'))
 	target_group = db.relationship('TargetGroup', 
 		backref=db.backref('events', lazy='dynamic',order_by= id))
-	phone = db.Column(db.Integer)
 
 class UserType(db.Model):
 	__tablename__='user_types'
@@ -152,9 +151,9 @@ class Users(db.Model):
 # 	# 	price, phone, additional_info, target_group, location, photo, email)
 
 
-# class Category(db.Model):
-# 	id = db.Column(db.Integer, primary_key = True)
-# 	name = db.Column(db.String(255))
+#class Category(db.Model):
+	#id = db.Column(db.Integer, primary_key = True)
+	#name = db.Column(db.String(255))
 	
 # class District(db.Model):
 # 	id = db.Column(db.Integer, primary_key = True)
@@ -165,6 +164,7 @@ class Users(db.Model):
 # 	name = db.Column(db.String(255))	
 
 class EventImage(db.Model):
+	__tablename__='images'
 	id = db.Column(db.Integer, primary_key = True)
 	event_id = db.Column(db.Integer, db.ForeignKey('events.id') )
 	event = db.relationship('Event', 
