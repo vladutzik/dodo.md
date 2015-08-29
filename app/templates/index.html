@@ -42,55 +42,51 @@
       <div class="carousel slide media-carousel" id="media">
         <div class="carousel-inner">
 
-          <div class="item  active">
+         <div class="item  active">
             <div class="row">
+            {% for event in events%}
+            {% if loop.index<=3 %}
               <div class=" col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="http://thewallpaperhost.com/wp-content/uploads/2014/12/inclined-abstract-lines_836723.jpg"></a>
+                <a class="thumbnail" href="/showevent/{{event.id}}"><img alt="" src="{{event.photo}}"></a>
               </div>          
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="http://thewallpaperhost.com/wp-content/uploads/2014/12/inclined-abstract-lines_836723.jpg"></a>
-              </div>
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="http://thewallpaperhost.com/wp-content/uploads/2014/12/inclined-abstract-lines_836723.jpg"></a>
-              </div>        
+              {% endif %}
+              {% endfor %}
             </div>
           </div>
 
-          {% for img in event.images %}
-          <div class="item">
-            <div class="row">
-              <div class="col-md-4">
-              <a class="thumbnail" href="#"><img alt="" src="{{img.image_link}}"></a>
-              </div>          
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="{{img.image_link}}"></a>
-              </div>
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="{{img.image_link}}"></a>
-              </div>        
-            </div>
-            {{img.image_link}}
-          </div>
-          {% endfor %}
+        {% for event in events%}
+        {% if loop.index == 4%}
+        <div class="item">
+          <div class="row">
+          {% endif %}
+          {% if loop.index > 4 and loop.index <=7 %}
+                <div class="col-md-4">
+                  <a class="thumbnail" href="/showevent/{{event.id}}"><img alt="" src="{{event.photo}}"></a>
+                </div>
+                {% endif%}          
+            {% endfor %}
+        </div>
+      </div>
 
-        <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
-        <a data-slide="next" href="#media" class="right carousel-control">›</a>
+
+            <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+            <a data-slide="next" href="#media" class="right carousel-control">›</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-{% block scripts %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript">
- $(document).ready(function() {
-  $('#media').carousel({
-    pause: true,
-    interval: false,
+  {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+   $(document).ready(function() {
+    $('#media').carousel({
+      pause: true,
+      interval: false,
+    });
   });
-});
-</script>
+ </script>
 
-{% endblock %}
-{% endblock %}
+ {% endblock %}
+ {% endblock %}

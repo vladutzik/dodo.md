@@ -1,4 +1,6 @@
 
+<<<<<<< HEAD
+=======
 @-webkit-keyframes slide {
     from { background-position-y: 0; }
     to { background-position-y: 78%; }
@@ -57,6 +59,7 @@
 .btn-search{
 	color:#9d9d9d;
 }
+>>>>>>> eec5ab86ab3402cd68122a8bce1282b6d4cb732c
 input{
        background-color:rgba(0,0,0,0) !important;
        border-color: #807575 !important;
@@ -453,33 +456,6 @@ html{
 	font-size: 14px;
 }
 
-/*----OTHER FOCUSES ----*/
-.other-focuses {
-	background: url(../images/lines.png) repeat-x center;
-	margin-bottom: 25px;
-}
-.other-focuses .section-footer-title {
-	background: #FFF;
-	padding: 0 15px;
-	color: #404040;
-	font-weight: bold;
-}
-.other-focus-list {
-	padding-top: 5px;
-	margin-bottom: -17px;
-}
-.other-focus-list ul li {
-	display: inline-block;
-	margin-right: 50px;
-	padding-bottom: 15px;
-	text-transform: uppercase;
-}
-.other-focus-list ul li:last-child {
-	margin-right: 0;
-}
-.other-focus-list ul li i {
-	margin-right: 8px;
-}
 
 .pixeden  {
     height: 63px;

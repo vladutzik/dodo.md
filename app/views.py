@@ -66,10 +66,12 @@ def event():
 	return render_template("event.html", form=form)
 
 
-@app.route('/')
+@app.route('/', methods = ['GET', 'POST'])
 def index():
-	event = Event.query.get(2)
-	return render_template("index.html", event = event)
+	events = Event.query.all()
+	for e in events:
+		print e
+	return render_template("index.html", events = events)
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
@@ -92,6 +94,8 @@ def list_events():
 	# for event_id in
 	#event_title = Event.query.filter_by(title=title).first_or_404()
 	events = Event.query.all()
+	for e in events:
+		print e
 	 # print event, event_id
 	print events
 	return render_template("list_events.html", events = events)
