@@ -1,6 +1,4 @@
-body {
-    padding-top: 90px;
-}
+
 .panel-login {
 	border-color: #ccc;
 	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
@@ -97,18 +95,4 @@ body {
 	background-color: #1CA347;
 	border-color: #1CA347;
 }
-
-body {
-  background: #2ecc71 url("http://www.wallpaper-box.com/smartphone/wp-content/uploads/2015/02/android-2160x1920-wallpaper_00109.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  font-family: "Roboto";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  opacity: 0.8;
-    filter: alpha(opacity=40);
-
-    }
 
