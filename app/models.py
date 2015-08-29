@@ -70,11 +70,6 @@ class Users(db.Model, UserMixin):
 	user_type = db.relationship('UserType', 
 		backref=db.backref('users', lazy='dynamic',order_by= id))
 
-	def __init__(self, nume, email, parola, user_type_id):
-		self.nume = nume
-		self.email = email
-		self.user_type_id = user_type_id
-		self.set_password(parola)
 
 	def set_password(self, password):
 		self.parola = generate_password_hash(password)

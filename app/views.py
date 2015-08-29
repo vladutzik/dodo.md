@@ -5,7 +5,7 @@ from flask import render_template, request, redirect
 from app.models import Event, TargetGroup, TypeEvent, Category, District, EventImage, Users
 from datetime import datetime
 from flask.ext.login import login_user, login_required, logout_user
-
+from werkzeug.security import generate_password_hash
 
 
 @login_manager.user_loader
@@ -25,8 +25,8 @@ def signup():
 		print form.parola.data
 		form_tasks = Users(nume = form.nume.data, 
 							email = form.email.data,
-							parola = form.parola.data,
-							user_type_id= form.user_type_id.data)
+							parola = generate_password_hash(form.parola.data),
+							user_type= form.user_type_id.data)
 		db.session.add(form_tasks)
 		db.session.commit()
 		return redirect('/')
