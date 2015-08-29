@@ -20,22 +20,6 @@
 }
 
 
-.navbar.transparent.navbar-inverse {
-   background: rgba(0,0,0,0.7);
-}
-
-.navbar-inverse{
-	border-color:#423B3B;
-}
-
-.navbar {
-	top:0;
-	left: 0;
-	position: fixed;
-	width: 100%;
-	z-index: 9999;
-}
-
 .btn{
 
 	background: transparent;
@@ -112,39 +96,6 @@ input{
 
 .carousel-inner {
 	background: #222;
-}
-
-
-body{
-	height: 100%;
-	background: center center fixed no-repeat;
-	margin-top: 70px;
-	/*background-image: url("http://thewallpaperhost.com/wp-content/uploads/2014/12/inclined-abstract-lines_836723.jpg");*/
-	background-image: url("http://hdw.datawallpaper.com/abstract/abstract-background-for-mac-wide-wallpaper-583162.jpg");
-	background-size: cover ;
-	/*background-position: center fixed;*/
-	background-repeat: repeat-y;
-	background-position-y: 78%;
-	-webkit-animation: slide 8s linear;
-	-moz-animation: slide 8s linear;
-	-0-animation: slide 8s linearx;
-	animation: slide 8s linear;	
-	
-}
-
-.opac_wall {
-	height: 100%;
-	width:100%;
-	background : rgba(254, 255, 255, 0.2);
-	display: fixed;
-	top: 0px;
-	left: 0px;
-	z-index: 1;
-	/*background-color: #FFFFFF;*/
-}
-
-html{
-	height: 100%;
 }
 
 .buttons {
@@ -657,12 +608,7 @@ html{
 	/*color: black;*/
 }
 
-.form {
-  margin:70px 15%;
-  background: #fff;
-  padding: 40px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-}
+
 .form h2 {
   margin: 0 0 20px;
   line-height: 1;
