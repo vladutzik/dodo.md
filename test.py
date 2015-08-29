@@ -24,8 +24,6 @@ def serialize_models(model, data):
 	return model_list
 
 
-
-
 if __name__ == '__main__':
 	district_list = [{'name': 'Chişinău'},{'name': 'Bălţi'},{'name': 'Comrat'},{'name': 'Tiraspol'},{'name': 'Tighina (Bender)'},{'name': 'Anenii Noi'},{'name': 'Basarabeasca'},{'name': 'Briceni'},{'name': 'Cahul'},{'name': 'Călăraşi'},{'name': 'Cantemir'},{'name': 'Căuşeni'},{'name': 'Cimişlia'},{'name': 'Criuleni'},{'name': 'Donduşeni'},{'name': 'Drochia'},{'name': 'Dubasari'},{'name': 'Edineţ'},{'name': 'Făleşti'},{'name': 'Floreşti'},{'name': 'Glodeni'},{'name': 'Hînceşti'},{'name': 'Ialoveni'},{'name': 'Leova'},{'name': 'Nisporeni'},{'name': 'Ocniţa'},{'name': 'Orhei'},{'name': 'Rezina'},{'name': 'Rîşcani'},{'name': 'Sîngerei'},{'name': 'Şoldăneşti'},{'name': 'Soroca'},{'name': 'Ştefan Vodă'},{'name': 'Străşeni'},{'name': 'Taraclia'},{'name': 'Teleneşti'},{'name': 'Ungheni'}]
 	categorii_list = [{'name':'Robotică'}, {'name':'Fizică'}, {'name':'Astronomie'}, {'name':'Informatică'}, {'name':'Matematică'}, {'name':'Sănătate'}, {'name':'Ecologie'}, {'name':'Erudiție'}, {'name':'Voluntariat'}, {'name':'Limbi străine'}, {'name':'Literatură'}, {'name':'Muzică'}, {'name':'SPort'}, {'name':'Artă plastică'}, {'name':'Artă dramatică'}]

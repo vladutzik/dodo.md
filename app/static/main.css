@@ -1,65 +1,4 @@
 
-<<<<<<< HEAD
-=======
-@-webkit-keyframes slide {
-    from { background-position-y: 0; }
-    to { background-position-y: 78%; }
-}
-
-@-moz-keyframes slide {
-    from { background-position-y: 0; }
-	to { background-position-y: 78%; }
-}
-
-@-o-keyframes slide {
-    from { background-position-y: 0; }
-	to { background-position-y: 78%; }
-}
-
-@-keyframes slide {
-    from { background-position-y: 0; }
-	to { background-position-y: 78%; }
-}
-
-
-.navbar.transparent.navbar-inverse {
-   background: rgba(0,0,0,0.7);
-}
-
-.navbar-inverse{
-	border-color:#423B3B;
-}
-
-.navbar {
-	top:0;
-	left: 0;
-	position: fixed;
-	width: 100%;
-	z-index: 9999;
-}
-
-.btn{
-
-	background: transparent;
-	/*color: #F2F2F2;*/
-	border-color: #807575;
-
-	/* CSS Transition */
-	-webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
-	-moz-transition: background .2s ease-in-out, border .2s ease-in-out;
-	-ms-transition: background .2s ease-in-out, border .2s ease-in-out;
-	-o-transition: background .2s ease-in-out, border .2s ease-in-out;
-	transition: background .2s ease-in-out, border .2s ease-in-out;
-}
-
-.btn-index{
-	color:white;
-	background-color: rgba(220,220,220,0.2)
-}
-.btn-search{
-	color:#9d9d9d;
-}
->>>>>>> eec5ab86ab3402cd68122a8bce1282b6d4cb732c
 input{
        background-color:rgba(0,0,0,0) !important;
        border-color: #807575 !important;
@@ -115,6 +54,7 @@ input{
 
 .carousel-inner {
 	background: #222;
+	vertical-align: middle;
 }
 
 
