@@ -1,3 +1,4 @@
+from flask.ext.login import UserMixin
 from app import db
 from datetime import datetime
 
@@ -57,7 +58,7 @@ class UserType(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(50))
 
-class Users(db.Model):
+class Users(db.Model, UserMixin):
 	__tablename__='users'
 	id = db.Column(db.Integer, primary_key=True)
 	nume = db.Column(db.String(255))
@@ -67,6 +68,8 @@ class Users(db.Model):
 	user_type = db.relationship('UserType', 
 		backref=db.backref('users', lazy='dynamic',order_by= id))
 	
+	def is_active(self):
+		return True
 
 
 # from datetime import datetime
