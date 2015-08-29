@@ -14,6 +14,9 @@
 
 
 {% block content %}
+{% if current_user.is_authenticated() %}
+  Hi {{ current_user.nume }}!
+{% endif %}
 <div class="container">
   <div class="col-md-offset-4 margin_top_100">
     <img src="../static/dodo.png" style="width:350px;height:100px; text-align:center"> 

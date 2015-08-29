@@ -28,32 +28,33 @@ href="{{url_for('.static', filename='signup.css')}}">
               <form id="login-form" action="/signin" method="post" role="form" style="display: block;">
               {{form.csrf_token}}
                 <div class="form-group input">
-                  {{form.nume.label}}
-                  {{form.nume(class_='form-control', placeholder=form.nume.label.text) }}
+                  {{form.email.label}}
+                  {{form.email(class_='form-control', placeholder=form.email.label.text) }}
                 </div>
 
                 <div class="form-group input">
                   {{form.parola.label}}
-                  {{form.parola(class_='form-control', placeholder=form.nume.label.text) }}
+                  {{form.parola(class_='form-control', placeholder=form.parola.label.text) }}
                 </div>
+                <p>{{error}}</p>
                 <div class = "form-group submit">
                   {{form.submit(class_='form-control', placeholder=form.nume.label.text) }}
                 </div>
+
                 <div class="form-group">
                   <div class="row">
                     <div class="col-lg-12">
-                      <div class="text-center">
-                        <a href="forgotpass" tabindex="5" class="forgot-password">Ai uitat parola?</a>
-                      </div>
                     </div>
                   </div>
                 </div>
               </form>
               <form id="register-form" action="signup" method="post" role="form" style="display: none;">
                 <div class="form-group">
-                  <input type="text" name="nume" id="nume" tabindex="1" class="form-control" placeholder="Nume" value="">
+                  {{form.nume.label(class="text")}}
+                  {{form.nume(class="form-control")}}
+
                 </div>
-                <div>
+                <div class="form-group">
                   {{form.user_type_id.label(class="text")}}
                   {{form.user_type_id(class="form-control")}}
 
@@ -61,18 +62,26 @@ href="{{url_for('.static', filename='signup.css')}}">
                 </div>
               </br>
               <div class="form-group">
-                <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email " value="">
+
+                {{form.email.label(class="text")}}
+                {{form.email(class="form-control")}}
+
               </div>
               <div class="form-group">
-                <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Parolă">
+                {{form.parola.label(class="text")}}
+                {{form.parola(class="form-control", type="password")}}
+
               </div>
               <div class="form-group">
-                <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmare parolă">
+                {{form.confirma_parola.label(class="text")}}
+                {{form.confirma_parola(class="form-control", type="password")}}
+
               </div>
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm-6 col-sm-offset-3">
-                    <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Înregistrază-te acum">
+
+                    {{form.submit(class_='form-control') }}
                   </div>
                 </div>
               </div>
