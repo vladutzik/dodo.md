@@ -1,76 +1,24 @@
-{% extends "bootstrap/base.html" %}
-
-{% block head %}
-{% block metas %}
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-{% endblock metas %}
+{% extends "base.html" %}
 
 {% block styles %}
 {{ super() }}
-<link rel="stylesheet" type="text/css" href="../static/main.css">
-{% endblock %}
 {% endblock %}
 
-{% block body %}
-<div id='background'>
-  {% block content %}
-  {% block navbar %}
-  <nav class="navbar transparent navbar-inverse ">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
-        </button>        
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-      <a class="navbar-brand" href="/"><img src="../static/dr.png"></a>
-      <ul class="nav navbar-nav navbar-right">
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span><span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Aboneaza-te</a></li>
-            <li><a href="#">Vezi toate evenimentele</a></li>
-            <li><a href="#">Despre noi</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="/contact_us">Contactează-ne</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Caută">              
-        </div>
-        <button type="submit" class="btn btn-default btn-search" >    
-          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        </button>
-      </form> 
-    </div>
-  </nav>
-  {% endblock %}  
-
-  <section class="contact-us" id="contact">
-    <div class="container">
-
+{% block content %}
+      <form class="form" id="contact-form">
       <!-- SECTION HEADER -->
       <div class="section-header">
 
         <!-- SECTION TITLE -->
-        <h2 class="white-text">Contactează-ne!</h2>
+        <h2>Contactează-ne!</h2>
 
         <!-- SHORT DESCRIPTION ABOUT THE SECTION -->
-        <h6 class="white-text">
+        <h3>
           Ai ceva întrebări, propuneri, feedback? Trimite-ne un mesaj.
-        </h6>
+        </h3>
       </div>
-      <form role="form" class="contact-form" id="contact-form">
 
+      
         <div class="row">
           <div style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;" class="wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
             <div class="col-lg-4 col-sm-4">
@@ -103,9 +51,7 @@
         </form>
         <!-- / END CONTACT FORM-->
         <!-- / END CONTAINER -->
-      </section>
-    </div>
-  </div>
+      
   {% block scripts %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -145,6 +91,5 @@
 
   });
  </script>
- {% endblock %}
  {% endblock %}
  {% endblock %}

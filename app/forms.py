@@ -83,7 +83,7 @@ class SigninForm(Form):
 
 class AddImageToEvent(Form):
 	title = TextField("Titlu:")
-	image_link = TextField("Add image link:")
+	image_link = TextField("Adauga link")
 	submit = SubmitField("Ok")
 
 # class ContactUsForm(Form):
