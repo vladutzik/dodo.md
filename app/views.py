@@ -34,7 +34,6 @@ def event():
 	form = EventForm(request.form, csrf_enabled=True)
 	print request.method
 	if request.method == 'POST':
-
 		print form.target_group_id.data
 		target_group = form.target_group_id.data
 		type_event = form.type_event_id.data
@@ -48,7 +47,6 @@ def event():
 		start_date = form.start_date.data,
 		end_date = form.end_date.data,
 		organizers = form.organizers.data,
-		published_at = form.published_at.data,
 		price = form.price.data,
 		photo = form.photo.data,
 		additional_info = form.additional_info.data,
@@ -66,11 +64,12 @@ def event():
 
 @app.route('/')
 def index():
+	event = Event.query.get(2)
 	animals_list = ['Enot', 'Elefant', 'Enot2', 'Zebra']
 	today = datetime.now()
 	new_day = today.day
 	print "index"
-	return render_template("index.html", day = new_day, animals = animals_list, best_animal = "Mark")
+	return render_template("index.html", day = new_day, animals = animals_list, best_animal = "Mark", event = event)
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
@@ -87,6 +86,15 @@ def show_event(event_id):
 	 # print event, event_id
 	print event
 	return render_template("show_event.html", event = event)
+
+@app.route('/listevents', methods = ['GET', 'POST'])
+def list_events():
+	# for event_id in
+	#event_title = Event.query.filter_by(title=title).first_or_404()
+	events = Event.query.all()
+	 # print event, event_id
+	print events
+	return render_template("list_events.html", events = events)
 
 
 @app.route('/signin', methods = ['POST', 'GET'])
@@ -131,4 +139,19 @@ def categories():
 
 @app.route('/contact_us')
 def contact_us():
+	# form = ContactUsForm()
+	# if form.validate_on_submit():
+	# 	print form.email.data, form.message.data
+	# 	return render_template("index_dodo.html")
 	return render_template('/contact_us.html')
+
+
+@app.route('/category/add',methods=['GET', 'POST'])
+def add_category():
+	form = AddCategoryForm()
+	if request.method == 'POST' :
+		category = Category(form.name.data)
+		db.session.add(category)
+		db.session.commit()
+		return render_template('index.html')
+	return render_template('add_category.html',form=form)
