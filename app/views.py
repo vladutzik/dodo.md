@@ -121,7 +121,6 @@ def signin():
 		print form.email.data
 		user = Users.query.filter_by(email=form.email.data).first()
 		login_user(user)
-
 		print 'logged in successfully'
 
 		return redirect('/')

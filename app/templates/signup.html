@@ -94,7 +94,8 @@ href="{{url_for('.static', filename='signup.css')}}">
 </div>
 </div>
 {% endblock %}
-{% block scripts %}
-<script src="{{url_for('.static', filename='signup.js')}}"></script>
+
+{% block scripts %} 
 {{super()}}
+<script src="{{url_for('.static', filename='signup.js')}}"></script>
 {% endblock %}
