@@ -1,6 +1,6 @@
 from app import app, db
 from app import login_manager
-from forms import SignupForm, EventForm, AddImageToEvent, SigninForm
+from forms import SignupForm, EventForm, AddImageToEvent, SigninForm, ContactUsForm
 from flask import render_template, request, redirect
 from app.models import Event, TargetGroup, TypeEvent, Category, District, EventImage, Users
 from datetime import datetime
@@ -148,10 +148,10 @@ def categories():
 
 @app.route('/contact_us')
 def contact_us():
-	# form = ContactUsForm()
-	# if form.validate_on_submit():
-	# 	print form.email.data, form.message.data
-	# 	return render_template("index_dodo.html")
+	form = ContactUsForm()
+	if form.validate_on_submit():
+		print form.email.data, form.message.data
+	 	return redirect("/")
 	return render_template('/contact_us.html')
 
 
@@ -168,7 +168,7 @@ def add_category():
 		category = Category(form.name.data)
 		db.session.add(category)
 		db.session.commit()
-		return render_template('index.html')
+		return redirect('/')
 	return render_template('add_category.html',form=form)
 
 
