@@ -3,7 +3,7 @@
 {% block styles %}
 {{super()}}
 <link rel="stylesheet" 
-  href="{{url_for('.static', filename='base.css')}}">
+href="{{url_for('.static', filename='base.css')}}">
 {% endblock %}
 
 {% block navbar %}
@@ -17,17 +17,18 @@
       </button>        
     </div>
     <ul class="nav navbar-nav navbar-right">
-    {% if current_user.is_authenticated() %}
-     <li><a href="#"><font color="red"><span class="glyphicon glyphicon-ok"></span> 
-     Logged IN</a></font></li>
-    {% else%}
-      <li><a href="/signup"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
-    {% endif %}
-    
-      <li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Log Out</a></li>
-    </ul>
-    <a class="navbar-brand" href="/"><img src="../static/dr.png"></a>
-    <ul class="nav navbar-nav navbar-right">
+      {% if current_user.is_authenticated() %}
+      <li><a href="/logout"><font color="red"><span class="glyphicon glyphicon-user"></span> 
+      Log Out</a></font></li>
+       <!-- <li><a href="/logout"></span> Log Out</a></li> -->
+       {% else%}
+       <li><a href="/signup"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+       {% endif %}
+
+
+     </ul>
+     <a class="navbar-brand" href="/"><img src="../static/dr.png"></a>
+     <ul class="nav navbar-nav navbar-right">
 
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span><span class="caret"></span></a>
