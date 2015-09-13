@@ -1,4 +1,4 @@
-{% extends 'bootstrap/base.html' %}
+{% extends 'base.html' %}
 
 {% block styles %}
 {{super()}}
@@ -7,14 +7,15 @@
 {% endblock %}
 
 {% block content %}
+<div align="center">
 <form method="post">
-<h1>Esti sigur ca vrei sa stergi evenimentul?</h1>
-<button>
-Da
-</button>
-<button>
-Nu
-</button>
+	<h1>Esti sigur ca vrei sa stergi evenimentul {{event.titlu}}?</h1>
+	<button class="btn-success btn-lg">Da</button>
 </form>
+<br>
+	<a href="/">
+		<button class="btn-danger btn-lg">Nuuuuuuuuuu</button>
+	</a>
+</div>
 
 {% endblock %}
