@@ -21,10 +21,12 @@
 
 .navbar.transparent.navbar-inverse {
    background: rgba(0,0,0,0.7);
+   z-index: 99999;
 }
 
 .navbar-inverse{
 	border-color:#423B3B;
+	z-index: 99999;
 }
 
 .navbar {
@@ -32,7 +34,7 @@
 	left: 0;
 	position: fixed;
 	width: 100%;
-	z-index: 9999;
+	z-index: 99999;
 }
 
 .btn{

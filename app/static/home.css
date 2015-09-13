@@ -58,6 +58,12 @@
 .btn-search{
         color:#9d9d9d;
 }
+
+.new {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 30px;
+        color: black; 
+}
 input{
        background-color:rgba(0,0,0,0) !important;
        border-color: #807575 !important;

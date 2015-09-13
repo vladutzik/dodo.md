@@ -13,11 +13,12 @@
 {% endblock %}
 {% endblock %}
 
-{% block body %}
+{% block content %}
 <div id='background'>
-  {% block content %}
-  {% block navbar %}
-  <nav class="navbar transparent navbar-inverse ">
+
+  
+  <!-- <nav class="navbar transparent navbar-inverse ">
+>>>>>>> 09a91ff76b082cdfe4d767e269d64746dfeae91d
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -27,8 +28,13 @@
         </button>        
       </div>
       <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+=======
+        <li><a href="/signup"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Log Out</a></li>
+>>>>>>> 09a91ff76b082cdfe4d767e269d64746dfeae91d
       </ul>
       <a class="navbar-brand" href="/"><img src="../static/dr.png"></a>
       <ul class="nav navbar-nav navbar-right">
@@ -53,7 +59,10 @@
         </button>
       </form> 
     </div>
+<<<<<<< HEAD
   </nav>
+=======
+  </nav> -->
   <div class="container">
     <div class="row">
 
@@ -203,6 +212,4 @@
                                 //$("#preview").contentWindow.focus();
                               });
 </script>
-{% endblock %}
-{% endblock %}
 {% endblock %}

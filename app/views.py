@@ -1,6 +1,10 @@
 from app import app, db
 from app import login_manager
+<<<<<<< HEAD
 from forms import SignupForm, EventForm, AddImageToEvent, SigninForm
+=======
+from forms import SignupForm, EventForm, AddImageToEvent, SigninForm, ContactUsForm
+>>>>>>> 09a91ff76b082cdfe4d767e269d64746dfeae91d
 from flask import render_template, request, redirect
 from app.models import Event, TargetGroup, TypeEvent, Category, District, EventImage, Users
 from datetime import datetime
@@ -12,6 +16,12 @@ from werkzeug.security import generate_password_hash
 def load_user(userid):
     return Users.query.get(userid)
 
+@app.route('/', methods = ['GET', 'POST'])
+def index():
+	events = Event.query.all()
+	for e in events:
+		print e
+	return render_template("index.html", events = events)
 
 @app.route('/signup', methods=['GET','POST'])
 def signup():
@@ -62,16 +72,8 @@ def event():
 		# form.populate_obj(form_tasks)
 		db.session.add(form_tasks)
 		db.session.commit()
-		return redirect("/")
+		return render_template("index.html", form=form)
 	return render_template("event.html", form=form)
-
-
-@app.route('/', methods = ['GET', 'POST'])
-def index():
-	events = Event.query.all()
-	for e in events:
-		print e
-	return render_template("index.html", events = events)
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
@@ -116,12 +118,6 @@ def signin():
 		return redirect('/')
 	return render_template("signup.html", form = form, error=error)
 
-
-# def addImageToEvent(id_event, img_link):
-# 	event_img = EventImage(event_id = id_event, image_link = img_link) 
-# 	db.session.add(me)
-# 	db.session.commit()
-
 @app.route('/event/<int:event_id>', methods = ['GET', 'POST'])
 @login_required
 def addImageToEvent(event_id):
@@ -141,10 +137,10 @@ def categories():
 
 @app.route('/contact_us')
 def contact_us():
-	# form = ContactUsForm()
-	# if form.validate_on_submit():
-	# 	print form.email.data, form.message.data
-	# 	return render_template("index_dodo.html")
+	form = ContactUsForm()
+	if form.validate_on_submit():
+		print form.email.data, form.message.data
+	 	return redirect("/")
 	return render_template('/contact_us.html')
 
 @app.route('/about_us')
@@ -160,7 +156,7 @@ def add_category():
 		category = Category(form.name.data)
 		db.session.add(category)
 		db.session.commit()
-		return render_template('index.html')
+		return redirect('/')
 	return render_template('add_category.html',form=form)
 
 @app.route("/logout")
@@ -169,3 +165,6 @@ def logout():
     logout_user()
     return redirect('/')
 
+@app.route('/construction')
+def construction():
+	return render_template('/construction.html')

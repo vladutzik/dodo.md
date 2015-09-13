@@ -53,46 +53,46 @@
         </form>
         <!-- / END CONTACT FORM-->
         <!-- / END CONTAINER -->
-      
-  {% block scripts %}
-  {{super()}}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('#media').carousel({
-        pause: true,
-        interval: false,
-      });
 
-      console.log($('#contact-form'))
-      $('#contact-form').on('submit', function(e){
-        e.preventDefault();
-        var data = {}
-        data.text   = $('#message').val()
-        data.from   = $('#email').val()
-        data.subject = $('#subject').val()
-        data.name   = $('#name').val()
+{% endblock %}
+    
+{% block scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+ $(document).ready(function() {
+  $('#media').carousel({
+    pause: true,
+    interval: false,
+  });
 
-        error = function(){
-          $('.response').html('<h4 class="error pull-left white-text">A intervenit o eroare, ne pare rău. Încercați mai tîrziu.</h4>');
-        }
+  console.log($('#contact-form'))
+ $('#contact-form').on('submit', function(e){
+  e.preventDefault();
+  var data = {}
+  data.text   = $('#message').val()
+  data.from   = $('#email').val()
+  data.subject = $('#subject').val()
+  data.name   = $('#name').val()
 
-        if( data.text.length && data.from.length && data.subject.length && data.name.length ){
-          data.to = 'dodomoldova@gmail.com'
-          $.post('http://send.zazzymail.com', data, function(response){
-            if( response == 'OK' ){
-              $('.response').html('<h4 class="success pull-left white-text">Mesajul tău a fost trimis cu succes.</h4>')
-            } else {
-                error()
-            }
-          })
-        } else 
+  error = function(){
+    $('.response').html('<h4 class="error pull-left white-text">A intervenit o eroare, ne pare rău. Încercați mai tîrziu.</h4>');
+  }
+
+  if( data.text.length && data.from.length && data.subject.length && data.name.length ){
+    data.to = 'dodomoldova@gmail.com'
+    $.post('http://send.zazzymail.com', data, function(response){
+      if( response == 'OK' ){
+        $('.response').html('<h4 class="success pull-left white-text">Mesajul tău a fost trimis cu succes.</h4>')
+      } else {
           error()
+      }
+    })
+  } else 
+    error()
 
-       })
+ })
 
-      });
- </script>
- {% endblock %}
- {% endblock %}
+});
+</script>
+{% endblock %}
