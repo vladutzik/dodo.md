@@ -19,7 +19,8 @@ href="{{url_for('.static', filename='carousel_main.css')}}">
 
 {% block content %}
 {% if current_user.is_authenticated() %}
-  Hi {{ current_user.nume }}!
+
+  <div class= "new" Welcome {{ current_user.nume }}! </div>
 {% endif %}
 
 <div class="container">
@@ -79,6 +80,7 @@ href="{{url_for('.static', filename='carousel_main.css')}}">
         </div>
       </div>
     </div>
+ {% endblock %}
 
   <!-- </div> -->
   {% block scripts %}
@@ -93,5 +95,4 @@ href="{{url_for('.static', filename='carousel_main.css')}}">
   });
  </script>
 
- {% endblock %}
  {% endblock %}
