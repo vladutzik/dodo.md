@@ -86,9 +86,9 @@ class AddImageToEvent(Form):
 	image_link = TextField("Adauga link")
 	submit = SubmitField("Ok")
 
-# class ContactUsForm(Form):
-# 	name = TextField("Nume:")
-# 	email = TextField("Email:")
-# 	subject = TextField("Subiect:")
-# 	message=TextField("Mesaj:")
-# 	submit = SubmitField("Ok")	
+class ContactUsForm(Form):
+	name = TextField("Nume:")
+	email = TextField("Email:")
+	subject = TextField("Subiect:")
+	message=TextField("Mesaj:")
+	submit = SubmitField("Ok")	
