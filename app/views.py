@@ -59,6 +59,7 @@ def event():
 		organizers = form.organizers.data,
 		price = form.price.data,
 		photo = form.photo.data,
+		phone = form.phone.data,
 		additional_info = form.additional_info.data,
 		location = unicode(form.location.data),
 		target_group_id = target_group.id,
@@ -68,7 +69,7 @@ def event():
 		# form.populate_obj(form_tasks)
 		db.session.add(form_tasks)
 		db.session.commit()
-		return render_template("index.html", form=form)
+		return redirect("/")
 	return render_template("event.html", form=form)
 
 @app.route('/register', methods = ['GET', 'POST'])
@@ -84,6 +85,8 @@ def show_event(event_id):
 	# event_title = Event.query.filter_by(title=title).first_or_404()
 	event = Event.query.get(event_id)
 	 # print event, event_id
+	if request.method == "POST":
+		return redirect("/deleteevent/{}".format(event_id))
 	print event
 	return render_template("show_event.html", event = event)
 
