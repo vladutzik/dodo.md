@@ -1,0 +1,20 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" 
+  href="{{url_for('.static', filename='base.css')}}">
+{% endblock %}
+
+{% block content %}
+<form method="post">
+<h1>Esti sigur ca vrei sa stergi evenimentul?</h1>
+<button>
+Da
+</button>
+<button>
+Nu
+</button>
+</form>
+
+{% endblock %}

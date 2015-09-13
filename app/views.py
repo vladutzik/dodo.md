@@ -1,10 +1,6 @@
 from app import app, db
 from app import login_manager
-<<<<<<< HEAD
-from forms import SignupForm, EventForm, AddImageToEvent, SigninForm
-=======
 from forms import SignupForm, EventForm, AddImageToEvent, SigninForm, ContactUsForm
->>>>>>> 09a91ff76b082cdfe4d767e269d64746dfeae91d
 from flask import render_template, request, redirect
 from app.models import Event, TargetGroup, TypeEvent, Category, District, EventImage, Users
 from datetime import datetime
@@ -90,6 +86,19 @@ def show_event(event_id):
 	 # print event, event_id
 	print event
 	return render_template("show_event.html", event = event)
+
+
+@app.route('/deleteevent/<int:event_id>', methods = ['GET', 'POST'])
+def delete_event(event_id):
+	# event_title = Event.query.filter_by(title=title).first_or_404()
+	event = Event.query.get(event_id)
+	if request.method == 'POST':
+		db.session.delete(event)
+		db.session.commit()	
+		return redirect('/')
+	print event
+	return render_template("delete.html", event = event)
+
 
 @app.route('/listevents', methods = ['GET', 'POST'])
 def list_events():

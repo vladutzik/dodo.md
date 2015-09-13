@@ -6,11 +6,12 @@
 
 {% block styles %}
 {{ super() }}
+
 <link rel="stylesheet" 
 href="{{url_for('.static', filename='main.css')}}">
-<link rel="stylesheet" 
+<!-- <link rel="stylesheet" 
 href="{{url_for('.static', filename='carousel_main.css')}}">
-
+ -->
 {% endblock %}
 
 
@@ -77,6 +78,12 @@ href="{{url_for('.static', filename='carousel_main.css')}}">
     </div>
   </div>
 </div>
+
+<form class="form">
+<button type="button" class="btn btn-default btn-lg">
+  <span class="height_100 glyphicon glyphicon-envelope" aria-hidden="true"> Abonează-te</span>
+  </button>
+</form>
 {% endblock %}
 
 {% block scripts %}
