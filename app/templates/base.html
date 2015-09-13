@@ -17,7 +17,13 @@
       </button>        
     </div>
     <ul class="nav navbar-nav navbar-right">
+    {% if current_user.is_authenticated() %}
+     <li><a href="#"><font color="red"><span class="glyphicon glyphicon-ok"></span> 
+     Logged IN</a></font></li>
+    {% else%}
       <li><a href="/signup"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+    {% endif %}
+    
       <li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Log Out</a></li>
     </ul>
     <a class="navbar-brand" href="/"><img src="../static/dr.png"></a>
