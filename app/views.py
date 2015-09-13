@@ -13,6 +13,14 @@ def load_user(userid):
     return Users.query.get(userid)
 
 
+@app.route('/', methods = ['GET', 'POST'])
+def index():
+	events = Event.query.all()
+	for e in events:
+		print e
+	return render_template("index.html", events = events)
+
+
 @app.route('/signup', methods=['GET','POST'])
 def signup():
 	form = SignupForm(request.form, csrf_enabled=True)
@@ -31,6 +39,7 @@ def signup():
 		db.session.commit()
 		return redirect('/')
 	return render_template("signup.html", form=form)
+
 
 @app.route('/event', methods=['GET','POST'])
 @login_required
@@ -65,13 +74,7 @@ def event():
 		return render_template("index.html", form=form)
 	return render_template("event.html", form=form)
 
-
-@app.route('/', methods = ['GET', 'POST'])
-def index():
-	events = Event.query.all()
-	for e in events:
-		print e
-	return render_template("index.html", events = events)
+	
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
@@ -81,6 +84,7 @@ def register():
 		return render_template("index.html", event)
 	return render_template("signup.html", form = form)
 
+
 @app.route('/showevent/<int:event_id>', methods = ['GET', 'POST'])
 def show_event(event_id):
 	# event_title = Event.query.filter_by(title=title).first_or_404()
@@ -88,6 +92,7 @@ def show_event(event_id):
 	 # print event, event_id
 	print event
 	return render_template("show_event.html", event = event)
+
 
 @app.route('/listevents', methods = ['GET', 'POST'])
 def list_events():
@@ -122,6 +127,7 @@ def signin():
 # 	db.session.add(me)
 # 	db.session.commit()
 
+
 @app.route('/event/<int:event_id>', methods = ['GET', 'POST'])
 @login_required
 def addImageToEvent(event_id):
@@ -139,6 +145,7 @@ def addImageToEvent(event_id):
 def categories():
 	return render_template('/categories.html')
 
+
 @app.route('/contact_us')
 def contact_us():
 	# form = ContactUsForm()
@@ -146,6 +153,7 @@ def contact_us():
 	# 	print form.email.data, form.message.data
 	# 	return render_template("index_dodo.html")
 	return render_template('/contact_us.html')
+
 
 @app.route('/about_us')
 def about_us():
@@ -163,9 +171,13 @@ def add_category():
 		return render_template('index.html')
 	return render_template('add_category.html',form=form)
 
+
 @app.route("/logout")
 @login_required
 def logout():
     logout_user()
     return redirect('/')
 
+@app.route('/construction')
+def construction():
+	return render_template('/construction.html')
