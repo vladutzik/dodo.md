@@ -13,11 +13,12 @@
 {% endblock %}
 {% endblock %}
 
-{% block body %}
+
+{% block content %}
 <div id='background'>
-  {% block content %}
-  {% block navbar %}
-  <nav class="navbar transparent navbar-inverse ">
+
+  
+  <!-- <nav class="navbar transparent navbar-inverse ">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -53,7 +54,8 @@
         </button>
       </form> 
     </div>
-  </nav>
+  </nav> -->
+
   <div class="container">
     <div class="row">
 
@@ -173,8 +175,8 @@
 </div>
 
 </div>
-
 {% endblock %} 
+
 {% block scripts %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -203,6 +205,5 @@
                                 //$("#preview").contentWindow.focus();
                               });
 </script>
-{% endblock %}
-{% endblock %}
+
 {% endblock %}
