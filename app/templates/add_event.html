@@ -1,0 +1,148 @@
+
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+  {% block metas %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% endblock metas %}
+
+  {% block styles %}
+    {{ super() }}
+  {% endblock %}
+{% endblock %}
+
+{% block body %}
+  {% block content %}
+    {% block navbar %}
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>        
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+          <a class="navbar-brand" href="#"><img src="../static/dr.png"></a>
+          <ul class="nav navbar-nav navbar-right">            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Aboneaza-te</a></li>
+                <li><a href="#">Evenimente</a></li>
+                <li><a href="/about_us">Despre noi</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Caut&#259">
+            </div>
+            <button type="submit" class="btn btn-default">    
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+          </form> 
+        </div>
+      </nav>
+    {% endblock %}  
+
+  <form method="post" action="/add_event">
+{{form.csrf_token}}
+<ul style="list-style: none;">
+<li class='col-md-offset-3 col-md-5'>
+{{form.title.label}}
+{{form.title(class_='form-control')}}
+</li>
+
+<li class='cold-md-offset-3 col-md-5'>
+{{form.content.label}}
+{{form.content(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.start_date.label}}
+{{form.start_date(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.end_date.label}}
+{{form.end_date(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.organizers.label}}
+{{form.organizers(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.published_at.label}}
+{{form.published_at(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.price.label}}
+{{form.price(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.photo.label}}
+{{form.photo(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.additional_info.label}}
+{{form.additional_info(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.target_group.label}}
+{{form.target_group(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.location.label}}
+{{form.location(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.district_id.label}}
+{{form.district_id(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.category.label}}
+{{form.category(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.eventType.label}}
+{{form.eventType(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.phone.label}}
+{{form.phone(class_='form-control')}}
+</li>
+
+<li class='col-md-offset-3 col-md-5'>
+{{form.email.label}}
+{{form.email(class_='form-control')}}
+</li>
+
+{{form.submit}}
+</ul>
+</form>
+  {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  {% endblock %}
+{% endblock %}
+
+{% endblock %}

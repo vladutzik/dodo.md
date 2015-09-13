@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<form class = "form " method = "post" action="/event/{{event_id}}">
+		<div class="form-group input">
+			<h2>Adaugă poze la evenimentul {{event_id}}</h2>	
+		</div>
+		
+		<div class="form-group input">
+		<h3>
+			Adaugă link la imagine
+			{{form.image_link(class_='form-control', placeholder="Adaugă link la imagine") }}
+		</h3>
+		</div>
+		<div class="form-group btn">
+			{{form.submit.label}}
+			{{form.submit(class_='form-control', placeholder=form.submit.label.text) }}
+		</div>
+	</form>
+{% endblock %}

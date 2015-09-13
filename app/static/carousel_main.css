@@ -1,0 +1,13 @@
+.item {
+	height: 250px;
+	vertical-align: middle;
+}
+
+.inner-carousel {
+	height: 250px;
+}
+
+.carousel {
+	display: inline-block;
+    vertical-align: middle;
+}

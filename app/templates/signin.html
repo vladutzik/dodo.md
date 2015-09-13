@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" 
+  href="{{url_for('.static', filename='main.css')}}">
+{% endblock %}
+
+{% block content %}
+ <form class = "form animated flipInX" method = "post" action="/">
+
+	
+	<div class="row">
+	<h2>Loghează-te</h2>
+		{{form.csrf_token}}
+			<div class="form-group input">
+				{{form.nume.label}}
+				{{form.nume(class_='form-control', placeholder=form.nume.label.text) }}
+			</div>
+
+			<div class="form-group input">
+				{{form.parola.label}}
+				{{form.parola(class_='form-control', placeholder=form.parola.label.text) }}
+			</div>
+
+			
+			<div class = "form-group submit">
+				{{form.submit(class_='form-control', placeholder=form.nume.label.text) }}
+			</div>
+		</div>
+	</form>
+</body>
+{% endblock %}

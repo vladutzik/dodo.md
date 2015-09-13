@@ -1,0 +1,140 @@
+@-webkit-keyframes slide {
+    from { background-position-y: 0; }
+    to { background-position-y: 78%; }
+}
+
+@-moz-keyframes slide {
+    from { background-position-y: 0; }
+	to { background-position-y: 78%; }
+}
+
+@-o-keyframes slide {
+    from { background-position-y: 0; }
+	to { background-position-y: 78%; }
+}
+
+@-keyframes slide {
+    from { background-position-y: 0; }
+	to { background-position-y: 78%; }
+}
+
+
+.navbar.transparent.navbar-inverse {
+   background: rgba(0,0,0,0.7);
+}
+
+.navbar-inverse{
+	border-color:#423B3B;
+}
+
+.navbar {
+	top:0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
+}
+
+.btn{
+
+	background: transparent;
+	/*color: #F2F2F2;*/
+	border-color: #807575;
+
+	/* CSS Transition */
+	-webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+	-moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+	-ms-transition: background .2s ease-in-out, border .2s ease-in-out;
+	-o-transition: background .2s ease-in-out, border .2s ease-in-out;
+	transition: background .2s ease-in-out, border .2s ease-in-out;
+}
+
+.btn-index{
+	color:white;
+	background-color: rgba(220,220,220,0.2)
+}
+.btn-search{
+	color:#9d9d9d;
+}
+
+body{
+	height: 100%;
+	background: center center fixed no-repeat;
+	margin-top: 70px;
+	/*background-image: url("http://thewallpaperhost.com/wp-content/uploads/2014/12/inclined-abstract-lines_836723.jpg");*/
+	background-image: url("http://hdw.datawallpaper.com/abstract/abstract-background-for-mac-wide-wallpaper-583162.jpg");
+	background-size: cover ;
+	/*background-position: center fixed;*/
+	background-repeat: repeat-y;
+	background-position-y: 78%;
+	-webkit-animation: slide 8s linear;
+	-moz-animation: slide 8s linear;
+	-0-animation: slide 8s linearx;
+	animation: slide 8s linear;	
+	
+}
+
+.opac_wall {
+	height: 100%;
+	width:100%;
+	background : rgba(254, 255, 255, 0.2);
+	display: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	/*background-color: #FFFFFF;*/
+}
+
+html{
+	height: 100%;
+}
+
+.form {
+  margin:70px 15%;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 40px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+
+}
+
+h2 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 40px;
+	text-align: center;
+	color: black;
+}
+
+label {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 18px;
+	text-align: center;
+	color: black;
+}
+
+/*----OTHER FOCUSES ----*/
+.other-focuses {
+	background: url(../images/lines.png) repeat-x center;
+	margin-bottom: 25px;
+}
+.other-focuses .section-footer-title {
+	background: #FFF;
+	padding: 0 15px;
+	color: #404040;
+	font-weight: bold;
+}
+.other-focus-list {
+	padding-top: 5px;
+	margin-bottom: -17px;
+}
+.other-focus-list ul li {
+	display: inline-block;
+	margin-right: 50px;
+	padding-bottom: 15px;
+	text-transform: uppercase;
+}
+.other-focus-list ul li:last-child {
+	margin-right: 0;
+}
+.other-focus-list ul li i {
+	margin-right: 8px;
+}

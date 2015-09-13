@@ -1,0 +1,551 @@
+
+input{
+       background-color:rgba(0,0,0,0) !important;
+       border-color: #807575 !important;
+    }
+
+
+body{
+	height: 100%;
+	background: center center fixed no-repeat;
+	margin-top: 70px;
+	/*background-image: url("http://thewallpaperhost.com/wp-content/uploads/2014/12/inclined-abstract-lines_836723.jpg");*/
+	background-image: url("http://hdw.datawallpaper.com/abstract/abstract-background-for-mac-wide-wallpaper-583162.jpg");
+	background-size: cover ;
+	/*background-position: center fixed;*/
+	background-repeat: repeat-y;
+	background-position-y: 78%;
+	-webkit-animation: slide 8s linear;
+	-moz-animation: slide 8s linear;
+	-0-animation: slide 8s linearx;
+	animation: slide 8s linear;	
+	
+}
+
+.opac_wall {
+	height: 100%;
+	width:100%;
+	background : rgba(254, 255, 255, 0.2);
+	display: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	/*background-color: #FFFFFF;*/
+}
+
+html{
+	height: 100%;
+}
+
+.buttons {
+	text-align: center;
+	margin-bottom: 100px;
+	margin-top: 45px;
+}
+.button {
+	display: inline-block !important;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 10px 35px 10px 35px;
+	border-radius: 4px;
+	margin: 10px;
+}
+.custom-button {
+	display: inline-block !important;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 13px 35px 13px 35px;
+	border-radius: 4px;
+	margin: 10px;
+	border: none;
+}
+.red-btn {
+	background: #e96656;
+}
+.green-btn {
+	background: #20AA73;
+}
+.blue-btn {
+	background: #3ab0e2;
+}
+.yellow-btn {
+	background: #E7AC44;
+}
+.red-btn,.green-btn,.blue-btn,.yellow-btn {
+	color: #FFF;
+	-webkit-transition: all 0.3s ease-in-out;
+	        transition: all 0.3s ease-in-out;
+}
+.blue-btn:hover {
+	color: #FFF;
+	background: #1288b9;
+}
+.red-btn:hover {
+	color: #FFF;
+	background: #cb4332;
+}
+.green-btn:hover {
+	color: #FFF;
+	background: #069059;
+}
+.yellow-btn:hover {
+	color: #FFF;
+	background: #d8951e;
+}
+
+/*---------------------------------------
+ **   COLORS                         -----
+-----------------------------------------*/
+
+/** BACKGROUNDS **/
+.red-bg {
+	background: #e96656;
+}
+.green-bg {
+	background: #34d293;
+}
+.blue-bg {
+	background: #3ab0e2;
+}
+.yellow-bg {
+	background: #E7AC44;
+}
+.dark-bg {
+	background: #404040;
+}
+.white-bg {
+	background:  #FFFFFF;
+}
+
+/** FOR TEXTS AND ICON FONTS **/
+.red-text {
+	color: #e96656;
+}
+.green-text {
+	color: #34d293;
+}
+.blue-text {
+	color: #3ab0e2;
+}
+.yellow-text {
+	color: #f7d861;
+}
+.dark-text {
+	color: #404040;
+}
+.white-text {
+	color: #FFFFFF;
+}
+
+/*---------------------------------------
+ **   BORDER BOTTOMS                 -----
+-----------------------------------------*/
+
+.white-border-bottom:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 50%;
+	height: 2px;
+	background: #F5F5F5;
+	bottom: -9px;
+	left: 25%;
+}
+.dark-border-bottom:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 50%;
+	height: 2px;
+	background: #404040;
+	bottom: -9px;
+	left: 25%;
+}
+.red-border-bottom:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 75%;
+	height: 2px;
+	background: #e96656;
+	bottom: -9px;
+	left: 12.5%;
+}
+.green-border-bottom:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 75%;
+	height: 2px;
+	background: #34d293;
+	bottom: -9px;
+	left: 12.5%;
+}
+.blue-border-bottom:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 75%;
+	height: 2px;
+	background: #3ab0e2;
+	bottom: -9px;
+	left: 12.5%;
+}
+.yellow-border-bottom:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 75%;
+	height: 2px;
+	background: #f7d861;
+	bottom: -9px;
+	left: 12.5%;
+}
+
+/*---------------------------------------
+ **   FORM                           -----
+-----------------------------------------*/
+
+.input-box {
+	border: 0;
+	width: 274px;
+	text-align: left;
+	text-transform: none;
+	padding: 9px;
+	min-height: 46px;
+	padding-left: 15px;
+	display: inline-block;
+	border-radius: 4px;
+	background: rgba(255,255,255, 0.95);
+}
+.textarea-box {
+	border: 0;
+	text-align: left;
+	text-transform: none;
+	padding: 9px;
+	min-height: 500px;
+	padding-left: 15px;
+	display: inline-block;
+	border-radius: 4px;
+	background: rgba(255,255,255, 0.95);
+}
+
+
+/*---------------------------------------
+ **   SECTION HEADERS                -----
+-----------------------------------------*/
+
+/*** SECTION HEADERS ***/
+.focus,.works,.about-us,.features,.packages,.products,.testimonial,.contact-us {
+	padding-top: 100px;
+}
+.section-header {
+	text-align: center;
+	padding-bottom: 75px;
+}
+.section-header h2 {
+	padding-bottom: 10px;
+	line-height: 40px;
+	position: relative;
+	display: inline-block;
+}
+.section-header h6 {
+	font-size: 16px;
+}
+
+/* PRE LOADER */
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #fefefe;
+	z-index: 99999;
+	height: 100%;
+	width: 100%;
+	overflow: hidden !important;
+}
+.status {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-image: url(../images/loading.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: -100px 0 0 -100px;
+}
+
+
+/*---------------------------------------
+ **   SECTION:  OUR FOCUS             -----
+-----------------------------------------*/
+
+.focus {
+	padding-bottom: 100px;
+	overflow: hidden;
+	background: #FFFFFF;
+}
+/* FOCUS BOX */
+.focus-box {
+	margin-bottom: 75px;
+}
+.focus-box .service-icon {
+	margin-bottom: 30px;
+	width: 145px;
+	height: 145px;
+	margin: auto;
+	border-radius: 50%;
+	border: 10px solid #ececec;
+	margin-bottom: 20px;
+	position: relative;
+	-webkit-transition: all 0.2s ease-in-out;
+	        transition: all 0.2s ease-in-out;
+}
+
+/* ON HOVER COLORED ROUNDED CIRCLE AROUND ICONS */
+.red,.green,.blue,.yellow {
+	-webkit-transition: all 0.2s ease-in-out;
+	        transition: all 0.2s ease-in-out;
+}
+.red:hover .service-icon {
+	border: 10px solid #e96656;
+}
+.green:hover .service-icon {
+	border: 10px solid #34d293;
+}
+.blue:hover .service-icon {
+	border: 10px solid #3ab0e2;
+}
+.yellow:hover .service-icon {
+	border: 10px solid #f7d861;
+}
+
+.focus-box h5 {
+	margin-bottom: 15px;
+	color: #404040;
+	position: relative;
+	display: inline-block;
+	text-transform: uppercase;
+	margin-bottom: 30px;
+	font-weight: bold;
+	font-size: 17px;
+}
+.focus-box p {
+	font-size: 14px;
+}
+
+
+.pixeden  {
+    height: 63px;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    display: block;
+
+}
+.pd-icon-music {
+    background: url('/static/music.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+.pd-icon-sport {
+    background: url('/static/sport.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+.pd-icon-volunteer {
+    background: url('/static/volunteer.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.pd-icon-IT {
+    background: url('/static/IT.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.pd-icon-art {
+    background: url('/static/art.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.pd-icon-astronomy {
+    background: url('/static/astronomy.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.pd-icon-ecology {
+    background: url('/static/ecology.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.pd-icon-knowledge {
+    background: url('/static/knowledge.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.pd-icon-language {
+    background: url('/static/language.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.pd-icon-literature {
+    background: url('/static/literature.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.pd-icon-math {
+    background: url('/static/math.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.pd-icon-robotics {
+    background: url('/static/robotics.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.pd-icon-science {
+    background: url('/static/science.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.pd-icon-health {
+    background: url('/static/health.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.pd-icon-drama {
+    background: url('/static/drama.png') no-repeat;
+    width: 68px;
+    height: 68px;
+    display: block;
+    background-size: contain;
+}
+
+.focus-box h5 {
+	color: white;
+	display: block;
+	position:relative;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 17px;
+	text-align: center;
+	margin-top: 1px;
+	margin-bottom: 15px;
+}
+
+.focus-box {
+    margin-bottom: 0px;
+}
+
+
+.index_page .media-carousel {
+  margin-bottom: 0;
+  padding: 0 40px 30px 40px;
+  margin-top: 113px;
+}
+/* Previous button  */
+.index_page .media-carousel .carousel-control.left 
+{
+  left: 10px;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width : 40px;
+  margin-top: 95px;
+  vertical-align: middle;
+}
+/* Next button  */
+.index_page .media-carousel .carousel-control.right 
+{
+  right: 10px !important;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width : 40px;
+  margin-top: 95px;
+}
+/* Changes the position of the indicators */
+.index_page .media-carousel .carousel-indicators 
+{
+  right: 50%;
+  top: auto;
+  bottom: 0px;
+  margin-right: -19px;
+}
+/* Changes the colour of the indicators */
+.index_page .media-carousel .carousel-indicators li 
+{
+  background: #c0c0c0;
+}
+.index_page .media-carousel .carousel-indicators .active 
+{
+  background: #333333;
+}
+
+.index_page .carousel-inner {
+	/*background: #222;*/
+	vertical-align: middle;
+}
+
+.index_page .carousel-item .image{
+	height: 230px;
+	width: 250px;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	display: block;
+	overflow: hidden;
+}

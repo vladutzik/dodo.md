@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="../static/contact_us.css">
+{% endblock %}
+
+{% block content %}
+      <form class="form" id="contact-form">
+      <!-- SECTION HEADER -->
+      <div class="section-header">
+
+        <!-- SECTION TITLE -->
+
+        <h2 class="Contact">Contactează-ne!</h2>
+
+        <!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+        <h3>
+          Ai ceva întrebări, propuneri, feedback? Trimite-ne un mesaj.
+        </h3>
+      </div>
+
+      
+        <div class="row">
+          <div style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;" class="wow fadeInLeft animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+            <div class="col-lg-4 col-sm-4">
+              <input name="Nume" placeholder="Nume" class="form-control input-box" id="name" type="text">
+            </div>
+            <div class="col-lg-4 col-sm-4">
+              <input name="Email" placeholder="Email" class="form-control input-box" id="email" type="email">
+            </div>
+            <div class="col-lg-4 col-sm-4">
+              <input name="Subiect" placeholder="Subiect" class="form-control input-box" id="subject" type="text">
+            </div>
+          </div>
+
+          <div style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;" class="col-md-12 wow fadeInRight animated animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+            <textarea name="message" class="form-control textarea-box" placeholder="Mesaj" id="message"></textarea>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 response"></div>
+          </div>
+            
+          
+        </div>
+          <div class="row contact-submit">
+            <div class="col-md-2">
+              <button style="visibility: visible;-webkit-animation-duration: 1.5s; -moz-animation-duration: 1.5s; animation-duration: 1.5s;-webkit-animation-delay: 0.15s; -moz-animation-delay: 0.15s; animation-delay: 0.15s;" class="btn btn-default btn-lg btn-index wow fadeInLeft animated animated" id="submit" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" type="submit">Trimite mesajul</button>
+            </div>
+
+          </div>
+        </form>
+        <!-- / END CONTACT FORM-->
+        <!-- / END CONTAINER -->
+      
+  {% block scripts %}
+  {{super()}}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#media').carousel({
+        pause: true,
+        interval: false,
+      });
+
+      console.log($('#contact-form'))
+      $('#contact-form').on('submit', function(e){
+        e.preventDefault();
+        var data = {}
+        data.text   = $('#message').val()
+        data.from   = $('#email').val()
+        data.subject = $('#subject').val()
+        data.name   = $('#name').val()
+
+        error = function(){
+          $('.response').html('<h4 class="error pull-left white-text">A intervenit o eroare, ne pare rău. Încercați mai tîrziu.</h4>');
+        }
+
+        if( data.text.length && data.from.length && data.subject.length && data.name.length ){
+          data.to = 'dodomoldova@gmail.com'
+          $.post('http://send.zazzymail.com', data, function(response){
+            if( response == 'OK' ){
+              $('.response').html('<h4 class="success pull-left white-text">Mesajul tău a fost trimis cu succes.</h4>')
+            } else {
+                error()
+            }
+          })
+        } else 
+          error()
+
+       })
+
+      });
+ </script>
+ {% endblock %}
+ {% endblock %}
