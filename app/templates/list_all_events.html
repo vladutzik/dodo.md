@@ -8,9 +8,10 @@ href="{{url_for('.static', filename='main.css')}}">
 
 {% block content %}
 <div class="ro">
-	{% if events is defined %}
-	<form class="form" align="center">
-		<h1 align="center">La moment nu avem nici un eveniment.<br>Te așteptăm să revii mai tîrziu :)</h1>
+	{% if not events%}
+	<form class="form" align="center" action="/">
+		<h2 align="center">La moment nu avem nici un eveniment.<br>Te așteptăm să revii mai tîrziu :)</h2>
+		<button class="btn-success btn-default btn-lg"><span><i class=" glyphicon glyphicon-arrow-left"></i></span> Înapoi la pagina principală</button>
 	</form>
 	{% else %}
 		{% for event in events %}

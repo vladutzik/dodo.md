@@ -8,6 +8,12 @@ href="{{url_for('.static', filename='main.css')}}">
 
 {% block content %}
 <div class="ro">
+	{% if not events %}
+	<form class="form" align="center" action="/categories">
+		<h2 align="center">La moment nu avem nici un eveniment în categoria {{category.name}}<br>Te așteptăm să revii mai tîrziu :)</h2>
+		<button class="btn-success btn-default btn-lg"><span><i class=" glyphicon glyphicon-arrow-left"></i></span> Înapoi la categorii</button>
+	</form>
+	{% else %}
 	{% for event in events %}
 	<form class = "form animated flipInX" method="post">
 		<div align="center">
@@ -84,45 +90,45 @@ href="{{url_for('.static', filename='main.css')}}">
 			</div>
 
 			<a href="/showevent/{{event.id}}">
-			<div class="row"> 
-				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" align="center">
-					<div align="center">
-						<!-- Indicators -->
-						<ol class="carousel-indicators">
-							<li data-target="#" data-slide-to="0" class="active"></li>
-							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-						</ol>
+				<div class="row"> 
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" align="center">
+						<div align="center">
+							<!-- Indicators -->
+							<ol class="carousel-indicators">
+								<li data-target="#" data-slide-to="0" class="active"></li>
+								<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+								<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+							</ol>
 
 
-						<!-- Wrapper for slides -->
-						<div class="carousel-inner" role="listbox">
-							<div class="item active" >	
-								<img src="{{event.photo}}" alt="..." class ="carousel_img">
-								<div class="carousel-caption">
-								</div>  
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner" role="listbox">
+								<div class="item active" >	
+									<img src="{{event.photo}}" alt="..." class ="carousel_img">
+									<div class="carousel-caption">
+									</div>  
+								</div>
+								{% for img in event.images %}
+								<div class="item" >	
+									<img src="{{img.image_link}}" alt="..." class ="carousel_img">
+									<div class="carousel-caption">
+									</div>  
+								</div>
+								{% endfor %}
 							</div>
-							{% for img in event.images %}
-							<div class="item" >	
-								<img src="{{img.image_link}}" alt="..." class ="carousel_img">
-								<div class="carousel-caption">
-								</div>  
-							</div>
-							{% endfor %}
+
+							<!-- Controls -->
+							<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							</a>
+							<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>
 						</div>
-
-						<!-- Controls -->
-						<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
-						</a>
-						<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
-						</a>
 					</div>
 				</div>
-			</div>
 			</a>
 			<!-- !!!probleme cu DateTime-->
 			<div name = "Published at" align="right" class = 'gray_text add_top_margin_20px'> 
@@ -131,5 +137,6 @@ href="{{url_for('.static', filename='main.css')}}">
 		</div>
 	</form>
 	{% endfor %}
+	{% endif %}
 </div>
 {% endblock %}

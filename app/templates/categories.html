@@ -20,6 +20,21 @@
     <div class="row">
 
       <!-- FIRST FOCUS BOXES -->
+      <div class="col-md-1">
+      </div>
+      <div align="center">
+      {% for category in categories %}
+        <div class="col-md-2 col-xs-4 focus-box {{color[loop.index%4]}} wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+        <a href="/list_category_events/{{loop.index}}">
+          <div class="service-icon">
+            <i class="{{category.icon}}"></i>
+          </div>
+          <h5 class="{{color[loop.index%4]}}-border-bottom">{{category.name}}</h5> 
+          </a>
+        </div>  
+      {% endfor %}
+      </div>
+<!-- 
       <div class="col-md-offset-1 col-md-2 col-xs-3 focus-box red wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
         <div class="service-icon">
           <i class="pixeden pd-icon-robotics"></i>
@@ -134,7 +149,7 @@
 </div>
 
 </div>
-
+ -->
 {% endblock %} 
 {% block scripts %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -52,7 +52,7 @@ def event():
 		print target_group, type_event, category, district
 
 		print "method POST - save data to database"
-		print form.district_id.encode('utf8')
+		# print form.district_id.enco  de('utf8')
 		form_tasks = Event(titlu = form.titlu.data, 
 		start_date = form.start_date.data,
 		end_date = form.end_date.data,
@@ -120,11 +120,12 @@ def list_category_events(category_id):
 	# for event_id in
 	#event_title = Event.query.filter_by(title=title).first_or_404()
 	events = Event.query.filter_by(category_id=category_id).all()
+	category = Category.query.get(category_id)
 	for e in events:
 		print e
 	 # print event, event_id
 	print events
-	return render_template("list_category_events.html", events = events)
+	return render_template("list_category_events.html", events = events, category=category)
 
 
 @app.route('/signin', methods = ['POST', 'GET'])
@@ -156,7 +157,9 @@ def addImageToEvent(event_id):
 
 @app.route('/categories')
 def categories():
-	return render_template('/categories.html')
+	categories = Category.query.all()
+	color = ['red', 'green', 'blue', 'yellow']
+	return render_template('/categories.html', categories=categories, color=color)
 
 @app.route('/contact_us')
 def contact_us():
