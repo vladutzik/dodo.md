@@ -52,7 +52,7 @@ def event():
 		print target_group, type_event, category, district
 
 		print "method POST - save data to database"
-		print unicode(form.district_id)
+		print form.district_id.encode('utf8')
 		form_tasks = Event(titlu = form.titlu.data, 
 		start_date = form.start_date.data,
 		end_date = form.end_date.data,

@@ -9,7 +9,7 @@ from flask.ext.login import LoginManager
 app = Flask(__name__)
 app.secret_key = "secret"
 
-app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:////home/diana/GirlsGoIT/dodo/dodo.db'
+app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:////home/corina/dodo/dodo.db'
 # app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:////home/corina/dodo/app.db'
 app.config['DEBUG'] = True
 
