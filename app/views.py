@@ -60,6 +60,7 @@ def event():
 		price = form.price.data,
 		photo = form.photo.data,
 		phone = form.phone.data,
+		content = form.content.data,
 		additional_info = form.additional_info.data,
 		location = unicode(form.location.data),
 		target_group_id = target_group.id,
@@ -103,8 +104,8 @@ def delete_event(event_id):
 	return render_template("delete.html", event = event)
 
 
-@app.route('/listevents', methods = ['GET', 'POST'])
-def list_events():
+@app.route('/list_all_events', methods = ['GET', 'POST'])
+def list_all_events():
 	# for event_id in
 	#event_title = Event.query.filter_by(title=title).first_or_404()
 	events = Event.query.all()
@@ -112,7 +113,18 @@ def list_events():
 		print e
 	 # print event, event_id
 	print events
-	return render_template("list_events.html", events = events)
+	return render_template("list_all_events.html", events = events)
+
+@app.route('/list_category_events/<int:category_id>', methods = ['GET', 'POST'])
+def list_category_events(category_id):
+	# for event_id in
+	#event_title = Event.query.filter_by(title=title).first_or_404()
+	events = Event.query.filter_by(category_id=category_id).all()
+	for e in events:
+		print e
+	 # print event, event_id
+	print events
+	return render_template("list_category_events.html", events = events)
 
 
 @app.route('/signin', methods = ['POST', 'GET'])

@@ -35,6 +35,7 @@ class Event(db.Model):
 	price = db.Column(db.Integer,nullable=True)
 	location = db.Column(db.Text)
 	photo = db.Column(db.String(255))
+	content = db.Column(db.Text)
 	additional_info = db.Column(db.Text,nullable=True)
 	
 	district_id = db.Column(db.Integer, db.ForeignKey('districts.id'))

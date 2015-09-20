@@ -1,6 +1,6 @@
 	# -*- coding: utf-8 -*-
 from flask.ext.wtf import Form
-from wtforms import TextField, PasswordField, SubmitField, DateTimeField, FileField, IntegerField
+from wtforms import TextField, PasswordField, SubmitField, DateTimeField, FileField, IntegerField, TextAreaField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from models import Category 
 from models import District
@@ -24,6 +24,7 @@ class EventForm(Form):
 	# published_at = DateTimeField('Publicat la...')
 	price = IntegerField('Pretul evenimentului')
 	photo = TextField('Poza evenimentului')	
+	content = TextAreaField('Descrierea evenmentului')
 	additional_info = TextField('Informatie aditionala')
 	location = TextField('Locatia')
 	phone = IntegerField('Numarul de telefon')
