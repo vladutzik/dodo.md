@@ -11,4 +11,4 @@ dist
 *.egg-info
 _mailinglist
 .tox
-__init__.py
+settings.py

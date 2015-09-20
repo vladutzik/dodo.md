@@ -56,14 +56,14 @@ input{
 	vertical-align: middle;
 }
 
-body{
+/*body{
 	height: 100%;
 	background: center center fixed no-repeat;
 	margin-top: 70px;
-	/*background-image: url("http://thewallpaperhost.com/wp-content/uploads/2014/12/inclined-abstract-lines_836723.jpg");*/
+	/*background-image: url("http://thewallpaperhost.com/wp-content/uploads/2014/12/inclined-abstract-lines_836723.jpg");*
 	background-image: url("http://hdw.datawallpaper.com/abstract/abstract-background-for-mac-wide-wallpaper-583162.jpg");
 	background-size: cover ;
-	/*background-position: center fixed;*/
+	/*background-position: center fixed;*
 	background-repeat: repeat-y;
 	background-position-y: 78%;
 	-webkit-animation: slide 8s linear;
@@ -72,7 +72,7 @@ body{
 	animation: slide 8s linear;	
 	
 }
-
+*/
 .opac_wall {
 	height: 100%;
 	width:100%;
