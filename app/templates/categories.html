@@ -16,24 +16,38 @@
 {% block content %}
 <div id='background'>
 
-  <div class="container">
-    <div class="row">
+  <!-- <div class="container" align="center">  -->
+  <!-- <div class="row"> -->
 
-      <!-- FIRST FOCUS BOXES -->
-      <div class="col-md-1">
-      </div>
-      <div align="center">
+  <!-- FIRST FOCUS BOXES -->
+  <div
+   align="center">
+    <div class="col-md-1">
+    </div>
+    <div align="center">
+      <!-- <div class="col-md-1"></div> -->
       {% for category in categories %}
-        <div class="col-md-2 col-xs-4 focus-box {{color[loop.index%4]}} wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+      <div class="col-md-2 col-xs-4 focus-box {{color[loop.index%4]}} wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
         <a href="/list_category_events/{{loop.index}}">
           <div class="service-icon">
             <i class="{{category.icon}}"></i>
           </div>
           <h5 class="{{color[loop.index%4]}}-border-bottom">{{category.name}}</h5> 
-          </a>
-        </div>  
-      {% endfor %}
+        </a>
       </div>
+      <!-- {{loop.index*5+loop.index//2  }} -->
+      <!-- {{loop.index//5//2==loop.index%5 }} -->
+      {% if loop.index//5//2==loop.index%5 %}
+    </div>
+    <div class="row"> 
+      <div class="col-md-1 "></div>  
+      <!-- AAAAAAA -->
+      {% endif %} 
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 <!-- 
       <div class="col-md-offset-1 col-md-2 col-xs-3 focus-box red wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
         <div class="service-icon">
@@ -149,7 +163,7 @@
 </div>
 
 </div>
- -->
+-->
 {% endblock %} 
 {% block scripts %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

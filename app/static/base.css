@@ -60,6 +60,7 @@
 }
 
 body{
+	overflow-x: hidden;
 	height: 100%;
 	background: center center fixed no-repeat;
 	margin-top: 70px;
