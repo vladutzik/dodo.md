@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from app import app, db
 from app import login_manager
 from forms import SignupForm, EventForm, AddImageToEvent, SigninForm, ContactUsForm
@@ -5,19 +6,27 @@ from flask import render_template, request, redirect
 from app.models import Event, TargetGroup, TypeEvent, Category, District, EventImage, Users
 from datetime import datetime
 from flask.ext.login import login_user, login_required, logout_user
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 @login_manager.user_loader
 def load_user(userid):
-    return Users.query.get(userid)
+	user = Users.query.get(userid)
+	return user
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
 	events = Event.query.all()
 	for e in events:
 		print e
-	return render_template("index.html", events = events)
+	imag = ['https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a.jpeg',
+	'https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a.jpeg',
+	 'https://stuchambers.files.wordpress.com/2012/08/training-course-group.jpg',
+	  'http://www.uni-regensburg.de/international/austausch-programmstudierende/medien/image_studieren_ar__1_.jpeg',
+	  'https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a.jpeg',
+	  'https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a.jpeg',
+	  'https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a.jpeg']
+	return render_template("index.html", events = events, imag=imag)
 
 @app.route('/signup', methods=['GET','POST'])
 def signup():
@@ -134,12 +143,20 @@ def signin():
 	error = ''
 	if form.validate_on_submit():
 		print '************'
-		print form.email.data
-		user = Users.query.filter_by(email=form.email.data).first()
-		login_user(user)
-		print 'logged in successfully'
-
-		return redirect('/')
+		print form.email.data, form.parola.data
+		parola = generate_password_hash(form.parola.data)
+		print parola
+		users = Users.query.filter_by(email=form.email.data).all()
+		print "########"
+		for user in users:
+			print user.parola
+			if check_password_hash(user.parola, form.parola.data):
+				login_user(user)
+				print 'logged in successfully'
+				return redirect('/')
+				break
+		error = "login usuccesful"
+		print error
 	return render_template("signup.html", form = form, error=error)
 
 @app.route('/event/<int:event_id>', methods = ['GET', 'POST'])

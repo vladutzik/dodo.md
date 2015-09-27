@@ -6,6 +6,8 @@
 
 <link rel="stylesheet" 
 href="{{url_for('.static', filename='main.css')}}">
+<link rel="stylesheet" 
+href="{{url_for('.static', filename='creative.css')}}">
 <!-- <link rel="stylesheet" 
 href="{{url_for('.static', filename='carousel_main.css')}}">
  -->
@@ -35,8 +37,61 @@ href="{{url_for('.static', filename='carousel_main.css')}}">
       </div>
     </div>
   </div>
+
+<br>
+<br>
+
+{% if not events%}
+<div id="portfolio"></div>
+{% else %}
+<section class="no-padding" id="portfolio"  style="background:#222; max-height:20px;">
+    <div class="container-fluid" >
+        <div class="row no-gutter">
+        
+        {% for event in events %}
+        {% if loop.index <= 3 %}
+        <div class="col-lg-4 col-sm-6" align="center" style="vertical-align:middle" >
+            <a href="/showevent/{{event.id}}" class="portfolio-box" align="center" >
+                <img src="{{event.photo}}" class="img-responsive" alt="" style="vertical-align:middle; max-height:220px; width:100%">
+                <div class="portfolio-box-caption" >
+                    <div class="portfolio-box-caption-content">
+                        <div class="project-category text-faded">
+                            {{event.titlu}}
+                        </div>
+                        <div class="project-name">
+                            {{event.content}}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        {% for i in range(loop.index, 7)%}
+            <div class="col-lg-4 col-sm-6">
+            <a class="portfolio-box-inactive">
+                <!-- <img src="../static/img/portfolio/default.jpg" class="img-responsive" alt=""> -->
+                <img src="{{imag[i-1]}}" class="img-responsive" alt="" style="max-height:220px; width:100%;">
+
+                <div class="portfolio-box-caption-inactive">
+                    <div class="portfolio-box-caption-content-inactive">
+                        <div class="project-category-inactive text-faded">
+                            <br><br>
+                            Coming soon
+                        </div>
+                        <div class="project-name-inactive">
+                            În curînd aici va apărea un nou eveniment :)
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        {% endfor %}       
+{% endif %}
+
   <!-- <div class="container"> -->
-  <div class='row'>
+  <!-- <div class='row'>
     <div class='col-md-offset-1 col-md-10'>
       <div class="carousel slide media-carousel" id="media">
         <div class="carousel-inner inner-carousel">
@@ -74,7 +129,11 @@ href="{{url_for('.static', filename='carousel_main.css')}}">
       </div>
     </div>
   </div>
+</div> -->
 </div>
+</div>
+<br>
+
 
 <form class="form">
 <button type="button" class="btn btn-default btn-lg">

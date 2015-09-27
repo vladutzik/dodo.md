@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% block metas %}
+<!-- <meta charset="utf-8"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% endblock metas %}
 {% block styles %}
 {{super()}}
 <link rel="stylesheet"
@@ -36,10 +41,13 @@ href="{{url_for('.static', filename='signup.css')}}">
                   {{form.parola.label}}
                   {{form.parola(class_='form-control', placeholder=form.parola.label.text) }}
                 </div>
-                <p>{{error}}</p>
-                <div class = "form-group submit">
-                  {{form.submit(class_='form-control', placeholder=form.nume.label.text) }}
+                <div class = "form-group submit" style="width:100px">
+                  {{form.submit(class_='form-control btn', placeholder="Loghează-te") }}
                 </div>
+                {% if error %}
+                <p style="color:red">Ați greșit emailul sau parola. Mai încercați o dată</p>
+                {% endif %}
+
 
                 <div class="form-group">
                   <div class="row">
